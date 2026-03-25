@@ -75,4 +75,299 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charco
 .footer{background:var(--charcoal);padding:22px;text-align:center;font-size:10px;color:var(--text-muted);letter-spacing:0.1em;}
 @media(max-width:600px){
   .g2,.g3,.svc-grid{grid-template-columns:1fr;}
-  .full{grid
+  .full{grid-column:1;}
+  .hero h1{font-size:26px;}
+  .rv{flex-direction:column;gap:4px;}
+  .rv-label{min-width:unset;}
+}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="logo">AMPLIFY</div>
+  <div class="sub">Marketing & Business Scaling</div>
+</div>
+
+<div class="hero">
+  <h1>Let's <em>Grow</em> Your Business</h1>
+  <p>Fill out this form and our team will reach out within 24 hours with a custom strategy built around your goals.</p>
+</div>
+
+<div class="wrap">
+  <div class="progress">
+    <div class="ps active" id="p1">Business Info</div>
+    <div class="ps" id="p2">Online Presence</div>
+    <div class="ps" id="p3">Services</div>
+    <div class="ps" id="p4">Review & Submit</div>
+  </div>
+
+  <div class="panel active" id="step1">
+    <div class="sh">Tell Us About Your Business</div>
+    <div class="g2">
+      <div class="fg"><label>Business Name *</label><input id="biz-name" placeholder="e.g. Glow Studio"></div>
+      <div class="fg"><label>Your Name *</label><input id="contact-name" placeholder="e.g. Jessica M."></div>
+      <div class="fg"><label>Email Address *</label><input id="contact-email" type="email" placeholder="you@yourbusiness.com"></div>
+      <div class="fg"><label>Phone Number</label><input id="contact-phone" placeholder="(832) 000-0000"></div>
+      <div class="fg"><label>Industry</label>
+        <select id="industry">
+          <option value="">Select your industry...</option>
+          <option>Beauty & Salon</option><option>Drone / Cleaning Services</option>
+          <option>Restaurant / Food</option><option>Real Estate</option>
+          <option>Fitness & Wellness</option><option>Retail / eCommerce</option>
+          <option>Professional Services</option><option>Home Services</option>
+          <option>Healthcare / Med Spa</option><option>Construction / Trades</option>
+          <option>Legal / Finance</option><option>Other</option>
+        </select>
+      </div>
+      <div class="fg"><label>City / Location</label><input id="location" placeholder="e.g. Sugar Land, TX"></div>
+      <div class="fg"><label>Website (if any)</label><input id="website" placeholder="https://"></div>
+      <div class="fg"><label>Business Type</label>
+        <select id="biz-type">
+          <option value="">Select...</option>
+          <option>B2C — Sell to consumers</option><option>B2B — Sell to businesses</option>
+          <option>Both</option><option>eCommerce</option>
+        </select>
+      </div>
+      <div class="fg full"><label>Tell us about your business & biggest challenge</label>
+        <textarea id="biz-notes" rows="3" placeholder="What do you do, who are your customers, and what's your biggest challenge right now?"></textarea>
+      </div>
+    </div>
+    <div class="ab"><span></span><button class="btn-p" onclick="goTo(2)">Next →</button></div>
+  </div>
+
+  <div class="panel" id="step2">
+    <div class="sh">Your Current Online Presence</div>
+    <div class="g3">
+      <div class="fg"><label>Instagram Handle</label><input id="ig" placeholder="@handle or 'None'"></div>
+      <div class="fg"><label>TikTok Handle</label><input id="tiktok" placeholder="@handle or 'None'"></div>
+      <div class="fg"><label>Facebook Page</label><input id="fb" placeholder="Page name or 'None'"></div>
+      <div class="fg"><label>Instagram Followers</label>
+        <select id="ig-size">
+          <option>None / No Account</option><option>Under 500</option>
+          <option>500 – 2,000</option><option>2,000 – 10,000</option><option>10,000+</option>
+        </select>
+      </div>
+      <div class="fg"><label>Google Reviews</label>
+        <select id="reviews">
+          <option>None / Not Listed</option><option>Under 10</option>
+          <option>10 – 50</option><option>50 – 200</option><option>200+</option>
+        </select>
+      </div>
+      <div class="fg"><label>Current Monthly Ad Spend</label>
+        <select id="ad-spend">
+          <option>$0 — Not running ads</option><option>Under $500</option>
+          <option>$500 – $2,000</option><option>$2,000 – $5,000</option><option>$5,000+</option>
+        </select>
+      </div>
+    </div>
+    <div class="ab">
+      <button class="btn-s" onclick="goTo(1)">← Back</button>
+      <button class="btn-p" onclick="goTo(3)">Next →</button>
+    </div>
+  </div>
+
+  <div class="panel" id="step3">
+    <div class="sh">Which Services Are You Interested In?</div>
+    <p style="font-size:12.5px;color:var(--text-muted);margin-bottom:22px;">Select everything that applies — our team will build a custom plan around your selections.</p>
+    <div class="svc-cats" id="svc-cats"></div>
+    <div class="count-bar">
+      <span>Services Selected</span>
+      <span id="svc-count">0 selected</span>
+    </div>
+    <div class="fg" style="margin-bottom:0">
+      <label>Anything else you'd like us to know?</label>
+      <textarea id="extra-notes" rows="3" placeholder="Budget range, timeline, specific goals, questions for our team..."></textarea>
+    </div>
+    <div class="ab">
+      <button class="btn-s" onclick="goTo(2)">← Back</button>
+      <button class="btn-p" onclick="goTo(4)">Review & Submit →</button>
+    </div>
+  </div>
+
+  <div class="panel" id="step4">
+    <div class="sh">Review Your Submission</div>
+    <div class="review-box" id="review-box"></div>
+    <p style="font-size:12px;color:var(--text-muted);line-height:1.7;margin-bottom:20px;">By submitting you agree to be contacted by the AMPLIFY team. We respect your privacy and will never share your information.</p>
+    <div class="ab">
+      <button class="btn-s" onclick="goTo(3)">← Edit</button>
+      <button class="btn-p" onclick="submitForm()" id="submit-btn">📤 Submit to AMPLIFY</button>
+    </div>
+    <div class="status" id="status-msg"></div>
+  </div>
+
+  <div class="panel" id="step-success">
+    <div class="success">
+      <div class="ck">✅</div>
+      <h2>We've Received Your Information</h2>
+      <p>Thank you for reaching out to AMPLIFY. A member of our team will contact you within 24 hours with your custom growth strategy.</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">AMPLIFY · Marketing & Business Scaling · Sugar Land, TX</div>
+
+<script>
+const CATALOG = [
+  { cat:'Social Media Management', icon:'📱', desc:'Content & growth', services:[
+    { name:'AI Caption & Content Generation', desc:'AI-crafted captions, hashtags, and post copy' },
+    { name:'Automated Posting (IG + TikTok)', desc:'Scheduled posting at peak engagement times' },
+    { name:'AI UGC Video Ads (2/mo)', desc:'AI-generated user-generated-style video content' },
+    { name:'Engagement Network Boost', desc:'Automated engagement to grow reach organically' },
+    { name:'Content Calendar & Strategy', desc:'Monthly editorial calendar with posting strategy' },
+    { name:'Profile Optimization & Audit', desc:'Bios, links, highlights, and brand consistency' },
+  ]},
+  { cat:'SEO & Local SEO', icon:'🔍', desc:'Search visibility', services:[
+    { name:'Local SEO (Google Business Optimization)', desc:'GBP setup, optimization, and weekly posts' },
+    { name:'On-Page SEO (Website)', desc:'Meta tags, schema, page speed, content optimization' },
+    { name:'Citation Building & Directory Listings', desc:'NAP consistency across 50+ directories' },
+    { name:'Monthly SEO Reporting', desc:'Keyword rankings, traffic, and backlink report' },
+    { name:'Backlink Outreach Campaign', desc:'Authority building through targeted link acquisition' },
+    { name:'Keyword Research & Strategy', desc:'Competitor gap analysis and target keyword mapping' },
+  ]},
+  { cat:'Geo / Geofencing Ads', icon:'📍', desc:'Location-based targeting', services:[
+    { name:'Geofencing Campaign Setup', desc:'Hyper-local ad targeting around specific locations' },
+    { name:'Geofencing Monthly Management', desc:'Ongoing optimization, A/B testing, reporting' },
+    { name:'Competitor Geofencing', desc:'Target customers visiting competitor locations' },
+    { name:'Event & Trade Show Targeting', desc:'Capture audiences at relevant events' },
+  ]},
+  { cat:'Paid Ads (Meta & Google)', icon:'💰', desc:'Performance advertising', services:[
+    { name:'Meta Ads Management (Facebook/IG)', desc:'Campaign strategy, creative, targeting & optimization' },
+    { name:'Google Ads Management', desc:'Search, display, and local service ads' },
+    { name:'Ad Creative Production', desc:'Graphics, copy, and video assets for campaigns' },
+    { name:'Retargeting Campaign Setup', desc:'Re-engage website visitors and past customers' },
+    { name:'Lead Generation Funnel', desc:'Landing page + ad funnel built for lead capture' },
+  ]},
+  { cat:'Email & SMS Marketing', icon:'✉️', desc:'Direct outreach & retention', services:[
+    { name:'Email Marketing Setup & Management', desc:'List setup, templates, sequences, and monthly sends' },
+    { name:'SMS Marketing Campaigns', desc:'Promotional and transactional SMS broadcasts' },
+    { name:'Automated Email Sequences', desc:'Welcome, nurture, and re-engagement flows' },
+    { name:'CRM Integration & List Management', desc:'Clean segmented lists connected to your CRM' },
+  ]},
+  { cat:'Website & Landing Pages', icon:'🌐', desc:'Web presence & conversion', services:[
+    { name:'Business Website (5–7 pages)', desc:'Custom-designed, SEO-ready, mobile-optimized site' },
+    { name:'Landing Page Build', desc:'High-converting standalone page for campaigns or offers' },
+    { name:'Website Audit & UX Review', desc:'Conversion rate analysis with action recommendations' },
+    { name:'Website Maintenance (monthly)', desc:'Updates, backups, speed checks, and security patches' },
+  ]},
+  { cat:'Reputation Management', icon:'⭐', desc:'Reviews & brand trust', services:[
+    { name:'Review Generation Campaign', desc:'Automated review requests via email/SMS post-service' },
+    { name:'Review Monitoring & Response', desc:'Monthly monitoring and professional response management' },
+    { name:'Reputation Audit & Strategy', desc:'Full audit of online mentions, reviews, and brand image' },
+    { name:'Negative Review Suppression', desc:'Content and SEO strategy to push down negative results' },
+  ]},
+  { cat:'Business Consulting & Operations', icon:'📊', desc:'Strategy, financials & SOPs', services:[
+    { name:'Monthly Business Strategy Consultation', desc:'Monthly 1-on-1 with growth roadmap and accountability' },
+    { name:'Financial Reporting & Dashboard', desc:'Monthly P&L, cash flow, and KPI reporting setup' },
+    { name:'SOP Development & Documentation', desc:'Build standard operating procedures for key business processes' },
+    { name:'SOP Audit & Optimization', desc:'Review existing SOPs and identify inefficiencies' },
+    { name:'Business Systems Buildout (CRM/Ops)', desc:'CRM + workflow automation setup' },
+    { name:'Competitor & Market Analysis', desc:'Deep-dive into market position and competitive gaps' },
+  ]},
+];
+
+function buildCatalog() {
+  const c = document.getElementById('svc-cats');
+  c.innerHTML = '';
+  CATALOG.forEach(cat => {
+    const d = document.createElement('div');
+    d.innerHTML = `
+      <div class="cat-head">
+        <span class="cat-icon">${cat.icon}</span>
+        <span class="cat-title">${cat.cat}</span>
+        <span class="cat-desc">${cat.desc}</span>
+      </div>
+      <div class="svc-grid">
+        ${cat.services.map(s=>`
+          <div class="svc-card" onclick="toggleSvc(this)">
+            <div class="svc-chk"></div>
+            <div class="svc-info">
+              <div class="svc-name">${s.name}</div>
+              <div class="svc-desc">${s.desc}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+    c.appendChild(d);
+  });
+}
+
+function toggleSvc(card) {
+  card.classList.toggle('on');
+  const n = document.querySelectorAll('.svc-card.on').length;
+  document.getElementById('svc-count').textContent = n + ' selected';
+}
+
+function goTo(step) {
+  if (step === 4) buildReview();
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('step' + step)?.classList.add('active');
+  document.querySelectorAll('.ps').forEach((s,i) => {
+    s.classList.remove('active','done');
+    if (i+1 < step) s.classList.add('done');
+    if (i+1 === step) s.classList.add('active');
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function buildReview() {
+  const g = id => document.getElementById(id)?.value || '—';
+  const svcs = [...document.querySelectorAll('.svc-card.on')]
+    .map(c => c.querySelector('.svc-name').textContent).join(', ') || 'None selected';
+  const rows = [
+    ['Business Name', g('biz-name')],['Contact Name', g('contact-name')],
+    ['Email', g('contact-email')],['Phone', g('contact-phone')],
+    ['Industry', g('industry')||'—'],['Location', g('location')],
+    ['Website', g('website')],['Business Type', g('biz-type')||'—'],
+    ['About Business', g('biz-notes')],['Instagram', g('ig')],
+    ['TikTok', g('tiktok')],['Facebook', g('fb')],
+    ['IG Followers', g('ig-size')],['Google Reviews', g('reviews')],
+    ['Current Ad Spend', g('ad-spend')],['Services Interested In', svcs],
+    ['Additional Notes', g('extra-notes')],
+  ];
+  document.getElementById('review-box').innerHTML = rows.map(([l,v])=>`
+    <div class="rv"><span class="rv-label">${l}</span><span class="rv-val">${v}</span></div>
+  `).join('');
+}
+
+async function submitForm() {
+  const g = id => document.getElementById(id)?.value || '';
+  const bizName = g('biz-name'), contactName = g('contact-name'), email = g('contact-email');
+  const s = document.getElementById('status-msg');
+  if (!bizName || !contactName || !email) {
+    s.style.cssText = 'display:block;background:#FFEBEE;color:#B71C1C;border:1px solid #FFCDD2;';
+    s.textContent = '✗ Business Name, Your Name, and Email are required.';
+    return;
+  }
+  const svcs = [...document.querySelectorAll('.svc-card.on')]
+    .map(c => c.querySelector('.svc-name').textContent).join(', ') || 'None selected';
+  const btn = document.getElementById('submit-btn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  try {
+    await emailjs.send('service_jn7asne', 'template_a59gl1l', {
+      to_email: 'gmoneytalents@gmail.com',
+      business_name: bizName, contact_name: contactName, email: email,
+      phone: g('contact-phone'), industry: g('industry'), location: g('location'),
+      website: g('website'), biz_type: g('biz-type'), biz_notes: g('biz-notes'),
+      instagram: g('ig'), tiktok: g('tiktok'), facebook: g('fb'),
+      ig_followers: g('ig-size'), google_reviews: g('reviews'), ad_spend: g('ad-spend'),
+      selected_services: svcs, extra_notes: g('extra-notes'),
+    });
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('step-success').classList.add('active');
+    document.querySelector('.progress').style.display = 'none';
+    window.scrollTo({top:0,behavior:'smooth'});
+  } catch(err) {
+    s.style.cssText = 'display:block;background:#FFEBEE;color:#B71C1C;border:1px solid #FFCDD2;';
+    s.textContent = '✗ Submission failed. Please try again.';
+    btn.textContent = '📤 Submit to AMPLIFY';
+    btn.disabled = false;
+  }
+}
+
+buildCatalog();
+</script>
+</body>
+</html>
