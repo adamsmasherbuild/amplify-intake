@@ -8,316 +8,71 @@
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>emailjs.init('gtRVmg00g2xl5ozcs');</script>
 <style>
-:root {
-  --cream: #F6F1E9;
-  --cream-dark: #EDE5D2;
-  --gold: #C8A84B;
-  --gold-light: #E2C97E;
-  --gold-pale: #F5EDD0;
-  --charcoal: #18181A;
-  --charcoal-soft: #36363A;
-  --text-body: #46413C;
-  --text-muted: #8C8278;
-  --white: #FDFAF4;
-  --border: rgba(200,168,75,0.22);
-  --shadow-md: 0 6px 32px rgba(24,24,26,0.10);
-  --r: 7px;
+:root{
+  --cream:#F6F1E9;--cream-dark:#EDE5D2;--gold:#C8A84B;--gold-light:#E2C97E;
+  --gold-pale:#F5EDD0;--charcoal:#18181A;--charcoal-soft:#36363A;
+  --text-body:#46413C;--text-muted:#8C8278;--white:#FDFAF4;
+  --border:rgba(200,168,75,0.22);--shadow:0 4px 24px rgba(24,24,26,0.09);--r:7px;
 }
-
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charcoal);min-height:100vh;}
-.header{background:var(--charcoal);padding:28px 0;text-align:center;}
-.header .logo{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;letter-spacing:0.22em;color:var(--gold);text-transform:uppercase;}
-.header .tagline{font-size:10px;color:var(--text-muted);letter-spacing:0.22em;text-transform:uppercase;margin-top:5px;}
-.hero{background:var(--charcoal);padding:40px 24px 52px;text-align:center;border-bottom:1px solid rgba(200,168,75,0.15);}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:var(--white);line-height:1.15;max-width:560px;margin:0 auto 14px;}
+.hdr{background:var(--charcoal);padding:26px 0;text-align:center;}
+.hdr .logo{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;letter-spacing:0.22em;color:var(--gold);text-transform:uppercase;}
+.hdr .sub{font-size:9.5px;color:var(--text-muted);letter-spacing:0.22em;text-transform:uppercase;margin-top:4px;}
+.hero{background:var(--charcoal);padding:36px 24px 48px;text-align:center;border-bottom:1px solid rgba(200,168,75,0.12);}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--white);line-height:1.15;max-width:540px;margin:0 auto 12px;}
 .hero h1 em{color:var(--gold);font-style:italic;}
-.hero p{font-size:13px;color:rgba(245,241,233,0.6);max-width:440px;margin:0 auto;line-height:1.7;}
-.wrap{max-width:720px;margin:0 auto;padding:48px 24px 80px;}
-.progress{display:flex;gap:0;margin-bottom:40px;border-bottom:1px solid var(--border);}
-.prog-step{flex:1;text-align:center;padding:10px 4px;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .2s;}
-.prog-step.active{color:var(--gold);border-bottom-color:var(--gold);}
-.prog-step.done{color:var(--charcoal);border-bottom-color:var(--charcoal-soft);}
-.panel{display:none;animation:fadeIn .2s ease;}
+.hero p{font-size:13px;color:rgba(245,241,233,0.6);max-width:420px;margin:0 auto;line-height:1.7;}
+.wrap{max-width:740px;margin:0 auto;padding:44px 24px 80px;}
+.progress{display:flex;border-bottom:1px solid var(--border);margin-bottom:38px;}
+.ps{flex:1;text-align:center;padding:10px 4px;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .2s;}
+.ps.active{color:var(--gold);border-bottom-color:var(--gold);}
+.ps.done{color:var(--charcoal-soft);border-bottom-color:var(--charcoal-soft);}
+.panel{display:none;animation:fi .2s ease;}
 .panel.active{display:block;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.sec-head{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--charcoal);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border);}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:20px;}
+@keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.sh{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--charcoal);margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--border);}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:20px;}
 .full{grid-column:1/-1;}
-.fg{display:flex;flex-direction:column;gap:6px;}
+.fg{display:flex;flex-direction:column;gap:5px;}
 .fg label{font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted);font-weight:500;}
-.fg input,.fg select,.fg textarea{background:var(--white);border:1px solid var(--border);border-radius:5px;padding:11px 13px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--charcoal);outline:none;transition:border-color .18s;resize:vertical;width:100%;}
+.fg input,.fg select,.fg textarea{background:var(--white);border:1px solid var(--border);border-radius:5px;padding:10px 13px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--charcoal);outline:none;transition:border-color .18s;resize:vertical;width:100%;}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,168,75,0.08);}
-.goals-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px;}
-.goal-card{border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;cursor:pointer;background:var(--white);transition:all .18s;display:flex;align-items:center;gap:10px;}
-.goal-card:hover{border-color:var(--gold-light);}
-.goal-card.on{border-color:var(--gold);background:var(--gold-pale);}
-.goal-chk{width:16px;height:16px;border:1.5px solid var(--border);border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .18s;}
-.goal-card.on .goal-chk{background:var(--gold);border-color:var(--gold);}
-.goal-card.on .goal-chk::after{content:'✓';font-size:9px;color:var(--charcoal);font-weight:700;}
-.goal-label{font-size:12.5px;color:var(--text-body);}
-.action-bar{display:flex;gap:10px;margin-top:32px;justify-content:space-between;align-items:center;}
-.btn-p{background:var(--gold);color:var(--charcoal);border:none;padding:13px 32px;border-radius:5px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all .18s;}
+.svc-cats{display:flex;flex-direction:column;gap:24px;margin-bottom:28px;}
+.cat-head{display:flex;align-items:center;gap:9px;margin-bottom:11px;}
+.cat-icon{font-size:16px;}
+.cat-title{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;color:var(--charcoal);letter-spacing:0.04em;}
+.cat-desc{font-size:11px;color:var(--text-muted);margin-left:auto;}
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.svc-card{border:1px solid var(--border);border-radius:var(--r);padding:11px 13px;cursor:pointer;background:var(--white);transition:all .18s;display:flex;align-items:flex-start;gap:9px;}
+.svc-card:hover{border-color:var(--gold-light);box-shadow:var(--shadow);}
+.svc-card.on{border-color:var(--gold);background:var(--gold-pale);}
+.svc-chk{width:15px;height:15px;border:1.5px solid var(--border);border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .18s;margin-top:2px;}
+.svc-card.on .svc-chk{background:var(--gold);border-color:var(--gold);}
+.svc-card.on .svc-chk::after{content:'✓';font-size:9px;color:var(--charcoal);font-weight:700;}
+.svc-info{flex:1;}
+.svc-name{font-size:12.5px;font-weight:500;color:var(--charcoal);margin-bottom:2px;}
+.svc-desc{font-size:10.5px;color:var(--text-muted);line-height:1.5;}
+.count-bar{background:var(--charcoal);border-radius:var(--r);padding:13px 18px;display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;}
+.count-bar span:first-child{font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted);}
+.count-bar span:last-child{font-size:13px;color:var(--gold);font-weight:500;}
+.review-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px;margin-bottom:24px;}
+.rv{display:flex;gap:16px;padding:9px 0;border-bottom:1px solid var(--border);}
+.rv:last-child{border-bottom:none;}
+.rv-label{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);min-width:140px;padding-top:2px;flex-shrink:0;}
+.rv-val{font-size:13px;color:var(--charcoal);flex:1;line-height:1.5;}
+.ab{display:flex;gap:10px;margin-top:30px;justify-content:space-between;align-items:center;}
+.btn-p{background:var(--gold);color:var(--charcoal);border:none;padding:12px 30px;border-radius:5px;font-family:'DM Sans',sans-serif;font-size:11.5px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all .18s;}
 .btn-p:hover{background:var(--gold-light);}
-.btn-s{background:none;color:var(--text-muted);border:1px solid var(--border);padding:13px 24px;border-radius:5px;font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all .18s;}
+.btn-s{background:none;color:var(--text-muted);border:1px solid var(--border);padding:12px 22px;border-radius:5px;font-family:'DM Sans',sans-serif;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all .18s;}
 .btn-s:hover{border-color:var(--gold);color:var(--gold);}
-.status-msg{display:none;margin-top:20px;padding:16px 20px;border-radius:var(--r);font-size:13px;font-weight:500;}
-.success-screen{text-align:center;padding:60px 24px;}
-.success-screen .check{font-size:56px;margin-bottom:20px;}
-.success-screen h2{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:var(--charcoal);margin-bottom:12px;}
-.success-screen p{font-size:13px;color:var(--text-muted);max-width:400px;margin:0 auto;line-height:1.7;}
-.footer{background:var(--charcoal);padding:24px;text-align:center;font-size:10px;color:var(--text-muted);letter-spacing:0.1em;}
+.status{display:none;margin-top:18px;padding:14px 18px;border-radius:var(--r);font-size:13px;font-weight:500;}
+.success{text-align:center;padding:60px 24px;}
+.success .ck{font-size:52px;margin-bottom:18px;}
+.success h2{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--charcoal);margin-bottom:12px;}
+.success p{font-size:13px;color:var(--text-muted);max-width:400px;margin:0 auto;line-height:1.7;}
+.footer{background:var(--charcoal);padding:22px;text-align:center;font-size:10px;color:var(--text-muted);letter-spacing:0.1em;}
 @media(max-width:600px){
-  .grid2,.grid3{grid-template-columns:1fr;}
-  .goals-grid{grid-template-columns:1fr;}
-  .hero h1{font-size:28px;}
-  .full{grid-column:1;}
-}
-</style>
-</head>
-<body>
-
-<div class="header">
-  <div class="logo">AMPLIFY</div>
-  <div class="tagline">Marketing & Business Scaling</div>
-</div>
-
-<div class="hero">
-  <h1>Let's <em>Grow</em> Your Business</h1>
-  <p>Tell us about your business and what you're looking to achieve. Our team will reach out within 24 hours with a custom strategy.</p>
-</div>
-
-<div class="wrap">
-  <div class="progress">
-    <div class="prog-step active" id="prog-1">Your Business</div>
-    <div class="prog-step" id="prog-2">Online Presence</div>
-    <div class="prog-step" id="prog-3">Goals</div>
-    <div class="prog-step" id="prog-4">Submit</div>
-  </div>
-
-  <div class="panel active" id="step1">
-    <div class="sec-head">Tell Us About Your Business</div>
-    <div class="grid2">
-      <div class="fg"><label>Business Name *</label><input id="biz-name" placeholder="e.g. Glow Studio"></div>
-      <div class="fg"><label>Your Name *</label><input id="contact-name" placeholder="e.g. Jessica M."></div>
-      <div class="fg"><label>Email Address *</label><input id="contact-email" type="email" placeholder="you@yourbusiness.com"></div>
-      <div class="fg"><label>Phone Number</label><input id="contact-phone" placeholder="(832) 000-0000"></div>
-      <div class="fg"><label>Industry</label>
-        <select id="industry">
-          <option value="">Select your industry...</option>
-          <option>Beauty & Salon</option>
-          <option>Drone / Cleaning Services</option>
-          <option>Restaurant / Food</option>
-          <option>Real Estate</option>
-          <option>Fitness & Wellness</option>
-          <option>Retail / eCommerce</option>
-          <option>Professional Services</option>
-          <option>Home Services</option>
-          <option>Healthcare / Med Spa</option>
-          <option>Construction / Trades</option>
-          <option>Legal / Finance</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="fg"><label>City / Location</label><input id="location" placeholder="e.g. Sugar Land, TX"></div>
-      <div class="fg"><label>Website (if any)</label><input id="website" placeholder="https://"></div>
-      <div class="fg"><label>Business Type</label>
-        <select id="biz-type">
-          <option value="">Select...</option>
-          <option>B2C — Sell to consumers</option>
-          <option>B2B — Sell to businesses</option>
-          <option>Both</option>
-          <option>eCommerce</option>
-        </select>
-      </div>
-      <div class="fg full"><label>Tell us about your business</label><textarea id="biz-notes" rows="3" placeholder="What do you do, who are your customers, and what's your biggest challenge right now?"></textarea></div>
-    </div>
-    <div class="action-bar">
-      <span></span>
-      <button class="btn-p" onclick="goTo(2)">Next →</button>
-    </div>
-  </div>
-
-  <div class="panel" id="step2">
-    <div class="sec-head">Your Current Online Presence</div>
-    <div class="grid3">
-      <div class="fg"><label>Instagram Handle</label><input id="ig" placeholder="@handle or 'None'"></div>
-      <div class="fg"><label>TikTok Handle</label><input id="tiktok" placeholder="@handle or 'None'"></div>
-      <div class="fg"><label>Facebook Page</label><input id="fb" placeholder="Page name or 'None'"></div>
-      <div class="fg"><label>Instagram Followers</label>
-        <select id="ig-size">
-          <option>None / No Account</option>
-          <option>Under 500</option>
-          <option>500 – 2,000</option>
-          <option>2,000 – 10,000</option>
-          <option>10,000+</option>
-        </select>
-      </div>
-      <div class="fg"><label>Google Reviews</label>
-        <select id="reviews">
-          <option>None / Not Listed</option>
-          <option>Under 10</option>
-          <option>10 – 50</option>
-          <option>50 – 200</option>
-          <option>200+</option>
-        </select>
-      </div>
-      <div class="fg"><label>Monthly Ad Spend</label>
-        <select id="ad-spend">
-          <option>$0 — Not running ads</option>
-          <option>Under $500</option>
-          <option>$500 – $2,000</option>
-          <option>$2,000 – $5,000</option>
-          <option>$5,000+</option>
-        </select>
-      </div>
-    </div>
-    <div class="action-bar">
-      <button class="btn-s" onclick="goTo(1)">← Back</button>
-      <button class="btn-p" onclick="goTo(3)">Next →</button>
-    </div>
-  </div>
-
-  <div class="panel" id="step3">
-    <div class="sec-head">What Are You Looking to Achieve?</div>
-    <p style="font-size:12.5px;color:var(--text-muted);margin-bottom:20px;">Select all that apply.</p>
-    <div class="goals-grid">
-      <div class="goal-card" onclick="this.classList.toggle('on')"><div class="goal-chk"></div><span class="goal-label">Grow my social media following</span></div>
-      <div class="goal-card" onclick="this.classList.toggle('on')"><div class="goal-chk"></div><span class="goal-label">Get more leads & inquiries</span></div>
-      <div class="goal-card" onclick="this.classList.toggle('on')"><div class="goal-chk"></div><span class="goal-label">Rank higher on Google</span></div>
-      <div class="goal-card" onclick="this.classList.toggle('on')"><div class="goal-chk"></div><span class="goal-label">Run paid ads (Meta / Google)</span></div>
-      <div class="goal-card" onclick="this.classList.toggle('on')"><div class="goal-chk"></div><span class="goal-label">Build a professional website</span></div>
-      <div class="goal-card" onclick="this.classList.toggle('on')"><div class="goal-chk"></div><span class="goal-label">Get more customer reviews</span></div>
-      <div class="goal-card" onclick="this.classList.toggle('on')"><div class="goal-chk"></div><span class="goal-label">Target local customers (geofencing)</span></div>
-      <div class="goal-card" onclick="this.classList.toggle('on')"><div class="goal-chk"></div><span class="goal-label">Email & SMS marketing</span></div>
-      <div class="goal-card" onclick="this.classList.toggle('on')"><div class="goal-chk"></div><span class="goal-label">Create video / UGC content</span></div>
-      <div class="goal-card" onclick="this.classList.toggle('on')"><div class="goal-chk"></div><span class="goal-label">Scale & systemize my business</span></div>
-    </div>
-    <div class="fg" style="margin-bottom:0">
-      <label>Anything else you'd like us to know?</label>
-      <textarea id="extra-notes" rows="3" placeholder="Budget range, timeline, specific challenges, questions for our team..."></textarea>
-    </div>
-    <div class="action-bar">
-      <button class="btn-s" onclick="goTo(2)">← Back</button>
-      <button class="btn-p" onclick="goTo(4)">Review & Submit →</button>
-    </div>
-  </div>
-
-  <div class="panel" id="step4">
-    <div class="sec-head">Review Your Information</div>
-    <div id="review-box" style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:24px;margin-bottom:28px;display:flex;flex-direction:column;gap:12px;"></div>
-    <p style="font-size:12px;color:var(--text-muted);line-height:1.7;margin-bottom:24px;">By submitting this form you agree to be contacted by the AMPLIFY team regarding your inquiry. We respect your privacy and will never share your information.</p>
-    <div class="action-bar">
-      <button class="btn-s" onclick="goTo(3)">← Edit</button>
-      <button class="btn-p" onclick="submitForm()" id="submit-btn">📤 Submit to AMPLIFY</button>
-    </div>
-    <div class="status-msg" id="status-msg"></div>
-  </div>
-
-  <div class="panel" id="step-success">
-    <div class="success-screen">
-      <div class="check">✅</div>
-      <h2>We've Received Your Information</h2>
-      <p>Thank you for reaching out to AMPLIFY. A member of our team will contact you within 24 hours to discuss your custom growth strategy.</p>
-    </div>
-  </div>
-</div>
-
-<div class="footer">AMPLIFY · Marketing & Business Scaling · Sugar Land, TX</div>
-
-<script>
-let currentStep = 1;
-
-function goTo(step) {
-  if (step === 4) buildReview();
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.getElementById('step' + step)?.classList.add('active');
-  document.querySelectorAll('.prog-step').forEach((s, i) => {
-    s.classList.remove('active', 'done');
-    if (i + 1 < step) s.classList.add('done');
-    if (i + 1 === step) s.classList.add('active');
-  });
-  currentStep = step;
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function buildReview() {
-  const g = id => document.getElementById(id)?.value || '—';
-  const goals = [...document.querySelectorAll('.goal-card.on')]
-    .map(c => c.querySelector('.goal-label').textContent).join(', ') || 'None selected';
-  const rows = [
-    ['Business Name', g('biz-name')],['Contact Name', g('contact-name')],
-    ['Email', g('contact-email')],['Phone', g('contact-phone')],
-    ['Industry', g('industry') || '—'],['Location', g('location')],
-    ['Website', g('website')],['Instagram', g('ig')],
-    ['TikTok', g('tiktok')],['Followers', g('ig-size')],
-    ['Google Reviews', g('reviews')],['Ad Spend', g('ad-spend')],
-    ['Goals', goals],['Notes', g('extra-notes')],
-  ];
-  document.getElementById('review-box').innerHTML = rows.map(([label, val]) => `
-    <div style="display:flex;gap:16px;padding:8px 0;border-bottom:1px solid var(--border);">
-      <span style="font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);min-width:130px;padding-top:2px;">${label}</span>
-      <span style="font-size:13px;color:var(--charcoal);flex:1;">${val}</span>
-    </div>
-  `).join('');
-}
-
-async function submitForm() {
-  const g = id => document.getElementById(id)?.value || '';
-  const bizName = g('biz-name');
-  const contactName = g('contact-name');
-  const email = g('contact-email');
-  if (!bizName || !contactName || !email) {
-    const s = document.getElementById('status-msg');
-    s.style.display = 'block';
-    s.style.background = '#FFEBEE';
-    s.style.color = '#B71C1C';
-    s.style.border = '1px solid #FFCDD2';
-    s.textContent = '✗ Please fill in Business Name, Your Name, and Email before submitting.';
-    return;
-  }
-  const goals = [...document.querySelectorAll('.goal-card.on')]
-    .map(c => c.querySelector('.goal-label').textContent).join(', ') || 'None selected';
-  const btn = document.getElementById('submit-btn');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-  try {
-    await emailjs.send('service_jn7asne', 'template_a59gl1l', {
-      to_email: 'gmoneytalents@gmail.com',
-      business_name: bizName,
-      contact_name: contactName,
-      email: email,
-      phone: g('contact-phone'),
-      industry: g('industry'),
-      location: g('location'),
-      website: g('website'),
-      biz_type: g('biz-type'),
-      biz_notes: g('biz-notes'),
-      instagram: g('ig'),
-      tiktok: g('tiktok'),
-      facebook: g('fb'),
-      ig_followers: g('ig-size'),
-      google_reviews: g('reviews'),
-      ad_spend: g('ad-spend'),
-      goals: goals,
-      extra_notes: g('extra-notes'),
-    });
-    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-    document.getElementById('step-success').classList.add('active');
-    document.querySelector('.progress').style.display = 'none';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  } catch(err) {
-    const s = document.getElementById('status-msg');
-    s.style.display = 'block';
-    s.style.background = '#FFEBEE';
-    s.style.color = '#B71C1C';
-    s.style.border = '1px solid #FFCDD2';
-    s.textContent = '✗ Submission failed. Please try again.';
-    btn.textContent = '📤 Submit to AMPLIFY';
-    btn.disabled = false;
-  }
-}
-</script>
-</body>
-</html>
+  .g2,.g3,.svc-grid{grid-template-columns:1fr;}
+  .full{grid
