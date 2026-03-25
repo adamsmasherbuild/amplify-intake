@@ -45,848 +45,669 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charco
 
 .s-label{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);opacity:0.75;margin-bottom:10px;margin-top:4px;}
 
-.cl-btn{width:100%;background:none;border:1px solid rgba(200,168,75,0.12);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:12.5px;padding:11px 13px;border-radius:var(--r);cursor:pointer;text-align:left;margin-bottom:7px;transition:all .18s;display:flex;flex-direction:column;gap:2px;}
-.cl-btn:hover{background:rgba(200,168,75,0.07);border-color:rgba(200,168,75,0.35);}
-.cl-btn.active{background:rgba(200,168,75,0.11);border-color:var(--gold);}
-.cl-btn .cn{font-weight:500;color:var(--white);font-size:13px;}
-.cl-btn .ct{font-size:10.5px;color:var(--text-muted);}
-.cl-btn .cs{font-size:9.5px;color:var(--gold);margin-top:2px;}
+.s-field{margin-bottom:12px;}
+.s-field label{display:block;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:5px;}
+.s-field input,.s-field select,.s-field textarea{width:100%;background:var(--charcoal-mid);border:1px solid rgba(200,168,75,0.15);border-radius:5px;padding:8px 10px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:12.5px;outline:none;transition:border 0.2s;}
+.s-field input:focus,.s-field select:focus,.s-field textarea:focus{border-color:rgba(200,168,75,0.45);}
+.s-field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23C8A84B' opacity='.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;cursor:pointer;}
+.s-field textarea{resize:vertical;min-height:58px;line-height:1.5;}
+.s-field input::placeholder,.s-field textarea::placeholder{color:rgba(140,130,120,0.5);}
 
-.add-btn{width:100%;background:none;border:1px dashed rgba(200,168,75,0.3);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11.5px;padding:9px;border-radius:var(--r);cursor:pointer;letter-spacing:0.05em;transition:all .18s;margin-top:2px;}
-.add-btn:hover{background:rgba(200,168,75,0.06);border-color:var(--gold);}
+.s-btn{width:100%;padding:10px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);font-family:'DM Sans',sans-serif;font-weight:500;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;border:none;border-radius:5px;cursor:pointer;margin-top:6px;transition:opacity 0.2s,transform 0.15s;}
+.s-btn:hover{opacity:0.88;transform:translateY(-1px);}
+.s-btn.secondary{background:transparent;border:1px solid rgba(200,168,75,0.3);color:var(--gold);margin-top:4px;}
+.s-btn.secondary:hover{border-color:var(--gold);background:rgba(200,168,75,0.06);}
 
-.s-footer{margin-top:auto;padding-top:20px;font-size:10px;color:var(--text-muted);line-height:1.6;border-top:1px solid rgba(200,168,75,0.1);}
+.s-services{display:flex;flex-direction:column;gap:5px;}
+.svc-row{display:flex;align-items:center;gap:8px;background:var(--charcoal-mid);border:1px solid rgba(200,168,75,0.1);border-radius:5px;padding:7px 10px;cursor:pointer;transition:border-color 0.2s;}
+.svc-row:hover{border-color:rgba(200,168,75,0.3);}
+.svc-row.active{border-color:rgba(200,168,75,0.5);background:rgba(200,168,75,0.07);}
+.svc-check{width:14px;height:14px;border:1.5px solid rgba(200,168,75,0.35);border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.svc-row.active .svc-check{background:var(--gold);border-color:var(--gold);}
+.svc-check svg{display:none;}
+.svc-row.active .svc-check svg{display:block;}
+.svc-name{font-size:12px;color:var(--white);opacity:0.82;}
+.svc-price{margin-left:auto;font-size:11px;color:var(--gold);opacity:0.75;}
 
 /* MAIN */
-.main{padding:44px 52px;max-width:980px;}
+.main{padding:36px 40px;overflow-y:auto;}
 
-.pg-head{margin-bottom:36px;padding-bottom:26px;border-bottom:1px solid var(--border);}
-.pg-head h1{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;letter-spacing:-0.01em;line-height:1.1;}
-.pg-head h1 em{color:var(--gold);font-style:italic;}
-.pg-head p{font-size:12.5px;color:var(--text-muted);margin-top:9px;max-width:500px;line-height:1.65;}
-
-/* TABS */
-.tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:34px;gap:0;}
-.tab-btn{background:none;border:none;padding:9px 18px;font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .18s;}
-.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold);}
-.tab-btn:hover:not(.active){color:var(--charcoal);}
-
-/* PANELS */
-.panel{display:none;animation:fadeIn .2s ease;}
-.panel.active{display:block;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
-
-/* SECTION HEADS */
-.sec-head{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;color:var(--charcoal);margin-bottom:15px;display:flex;align-items:center;gap:9px;}
-.sec-head::after{content:'';flex:1;height:1px;background:var(--border);}
-.sec-num{width:21px;height:21px;border-radius:50%;background:var(--gold);color:var(--charcoal);font-size:9.5px;font-family:'DM Sans',sans-serif;font-weight:500;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
-
-/* FORMS */
-.fg{display:flex;flex-direction:column;gap:5px;margin-bottom:0;}
-.fg label{font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted);font-weight:500;}
-.fg input,.fg select,.fg textarea{background:var(--white);border:1px solid var(--border);border-radius:5px;padding:9px 12px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--charcoal);outline:none;transition:border-color .18s;resize:vertical;}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:24px;}
-.full{grid-column:1/-1;}
-.mb24{margin-bottom:24px;}
-.mb32{margin-bottom:32px;}
-
-/* PAIN TAGS */
-.tag-cloud{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:28px;}
-.ptag{padding:5px 13px;border:1px solid var(--border);border-radius:20px;font-size:12px;color:var(--text-body);cursor:pointer;background:var(--white);transition:all .18s;user-select:none;}
-.ptag:hover{border-color:var(--gold-light);}
-.ptag.on{background:var(--gold);border-color:var(--gold);color:var(--charcoal);font-weight:500;}
-
-/* SERVICE CATEGORIES — MODULAR BUILDER */
-.svc-categories{display:flex;flex-direction:column;gap:26px;margin-bottom:28px;}
-.svc-cat-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
-.svc-cat-icon{font-size:16px;}
-.svc-cat-title{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;color:var(--charcoal);letter-spacing:0.04em;}
-.svc-cat-desc{font-size:11px;color:var(--text-muted);margin-left:auto;}
-.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-
-.svc-card{border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;cursor:pointer;background:var(--white);transition:all .18s;display:flex;align-items:flex-start;gap:10px;}
-.svc-card:hover{border-color:var(--gold-light);box-shadow:var(--shadow-sm);}
-.svc-card.on{border-color:var(--gold);background:var(--gold-pale);}
-
-.svc-chk{width:16px;height:16px;border:1.5px solid var(--border);border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .18s;margin-top:2px;}
-.svc-card.on .svc-chk{background:var(--gold);border-color:var(--gold);}
-.svc-card.on .svc-chk::after{content:'✓';font-size:9px;color:var(--charcoal);font-weight:700;}
-
-.svc-info{flex:1;}
-.svc-name{font-size:12.5px;font-weight:500;color:var(--charcoal);margin-bottom:2px;}
-.svc-price{display:none;}
-.svc-desc{font-size:10.5px;color:var(--text-muted);line-height:1.5;margin-top:2px;}
-
-/* PRICE SUMMARY */
-.price-summary{background:var(--charcoal);border-radius:var(--r);padding:20px 22px;display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;}
-.ps-left{color:var(--cream);}
-.ps-label{font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;}
-.ps-count{font-size:13px;color:rgba(245,241,233,0.7);}
-.ps-total{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;color:var(--gold);letter-spacing:-0.01em;}
-.ps-period{font-size:12px;color:var(--text-muted);}
+.page-header{margin-bottom:32px;}
+.page-title{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:var(--charcoal);letter-spacing:0.02em;}
+.page-sub{font-size:12px;color:var(--text-muted);margin-top:5px;letter-spacing:0.05em;}
 
 /* PROPOSAL PREVIEW */
-.prop-wrap{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:var(--shadow-md);}
+.proposal{background:var(--white);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-md);}
 
-.prop-top{background:var(--charcoal);padding:32px 40px;display:flex;justify-content:space-between;align-items:flex-end;}
-.prop-top-l h2{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:var(--gold);letter-spacing:0.06em;margin-bottom:5px;}
-.prop-top-l p{font-size:11.5px;color:rgba(245,241,233,0.55);letter-spacing:0.04em;}
-.prop-top-r .agt{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:0.18em;color:var(--gold);text-transform:uppercase;}
-.prop-top-r .ags{font-size:9.5px;color:rgba(245,241,233,0.45);letter-spacing:0.2em;text-transform:uppercase;margin-top:4px;}
+.p-hero{background:var(--charcoal);padding:40px 44px 36px;position:relative;overflow:hidden;}
+.p-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(200,168,75,0.12),transparent 70%);}
+.p-hero-eyebrow{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);opacity:0.8;margin-bottom:14px;}
+.p-hero-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--white);line-height:1.2;}
+.p-hero-sub{font-size:12px;color:rgba(253,250,244,0.55);margin-top:8px;letter-spacing:0.04em;}
+.p-hero-meta{display:flex;gap:24px;margin-top:22px;}
+.p-hero-meta-item{}
+.p-hero-meta-label{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(200,168,75,0.6);}
+.p-hero-meta-val{font-size:13px;color:var(--white);margin-top:3px;}
 
-.prop-body{padding:34px 40px;display:flex;flex-direction:column;gap:26px;}
+.p-body{padding:36px 44px;}
 
-.prop-sec h3{font-family:'Cormorant Garamond',serif;font-size:12.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;padding-bottom:7px;border-bottom:1px solid var(--border);}
-.prop-sec p,.prop-sec li{font-size:12.5px;color:var(--text-body);line-height:1.75;}
-.prop-sec ul{list-style:none;display:flex;flex-direction:column;gap:3px;}
-.prop-sec ul li::before{content:'→ ';color:var(--gold);}
+.p-section{margin-bottom:36px;}
+.p-section-title{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--charcoal);letter-spacing:0.05em;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border-soft);display:flex;align-items:center;gap:8px;}
+.p-section-title::before{content:'';display:inline-block;width:3px;height:14px;background:var(--gold);border-radius:2px;}
 
-.meta-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
-.meta-box{background:var(--cream);border-radius:5px;padding:12px 14px;}
-.meta-box .ml{font-size:8.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:3px;}
-.meta-box .mv{font-size:13.5px;color:var(--charcoal);font-weight:500;}
-.meta-box .mv.gold{color:var(--gold);}
+.p-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.p-card{background:var(--cream);border:1px solid var(--border-soft);border-radius:5px;padding:16px 18px;}
+.p-card-label{font-size:9.5px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:5px;}
+.p-card-val{font-size:13.5px;color:var(--charcoal);font-weight:500;}
 
-/* SERVICE LINE ITEMS IN PREVIEW */
-.svc-category-block{margin-bottom:10px;}
-.svc-cat-label{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:5px;margin-top:10px;}
-.svc-lines{display:flex;flex-direction:column;gap:4px;}
-.svc-line{display:flex;justify-content:space-between;align-items:center;padding:7px 11px;background:var(--cream);border-radius:4px;}
-.svc-line .sl-name{font-size:12.5px;color:var(--text-body);}
-.svc-line .sl-price{font-size:12px;color:var(--gold);font-weight:500;}
+/* SERVICES TABLE */
+.svc-table{width:100%;border-collapse:collapse;}
+.svc-table th{font-size:9.5px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);text-align:left;padding:6px 0;border-bottom:1px solid var(--border-soft);font-weight:400;}
+.svc-table th:last-child,.svc-table td:last-child{text-align:right;}
+.svc-table td{padding:11px 0;border-bottom:1px solid rgba(200,168,75,0.06);font-size:13px;color:var(--charcoal);}
+.svc-table tr:last-child td{border-bottom:none;}
+.svc-badge{display:inline-block;font-size:9px;letter-spacing:0.1em;padding:2px 7px;border-radius:20px;background:var(--gold-pale);color:var(--gold);border:1px solid rgba(200,168,75,0.25);text-transform:uppercase;}
 
-.total-line{display:flex;justify-content:space-between;align-items:center;padding:12px 11px;background:var(--charcoal);border-radius:5px;margin-top:8px;}
-.total-line .tl-label{font-size:11px;color:rgba(245,241,233,0.7);letter-spacing:0.08em;text-transform:uppercase;}
-.total-line .tl-val{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--gold);}
+/* TOTALS */
+.totals{background:var(--cream-dark);border-radius:6px;padding:18px 20px;margin-top:10px;}
+.totals-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;font-size:13px;color:var(--text-body);}
+.totals-row.total{border-top:1px solid var(--border);margin-top:8px;padding-top:12px;}
+.totals-row.total span:first-child{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--charcoal);}
+.totals-row.total span:last-child{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--gold);}
 
-.prop-footer{background:var(--cream-dark);padding:18px 40px;display:flex;justify-content:space-between;align-items:center;}
-.prop-footer p{font-size:10.5px;color:var(--text-muted);font-style:italic;}
-.sig-row{display:flex;gap:36px;}
-.sig-item{text-align:center;}
-.sig-line{width:110px;height:1px;background:var(--charcoal-soft);margin-bottom:5px;}
-.sig-lbl{font-size:9.5px;color:var(--text-muted);letter-spacing:0.08em;}
+/* TIMELINE */
+.timeline{display:flex;flex-direction:column;gap:0;}
+.tl-item{display:flex;gap:16px;}
+.tl-left{display:flex;flex-direction:column;align-items:center;}
+.tl-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--cream);box-shadow:0 0 0 1px var(--gold);margin-top:3px;flex-shrink:0;}
+.tl-line{width:1px;background:var(--border-soft);flex:1;margin:4px 0;min-height:20px;}
+.tl-item:last-child .tl-line{display:none;}
+.tl-content{padding-bottom:20px;}
+.tl-phase{font-size:11px;font-weight:500;color:var(--charcoal);letter-spacing:0.05em;}
+.tl-desc{font-size:11.5px;color:var(--text-muted);margin-top:3px;line-height:1.5;}
+.tl-dur{display:inline-block;font-size:9px;letter-spacing:0.1em;padding:2px 7px;border-radius:20px;background:var(--gold-pale);color:var(--gold);border:1px solid rgba(200,168,75,0.2);margin-top:5px;}
 
-/* ACTIONS */
-.action-bar{display:flex;gap:10px;margin-top:28px;}
-.btn-p{background:var(--gold);color:var(--charcoal);border:none;padding:11px 26px;border-radius:5px;font-family:'DM Sans',sans-serif;font-size:11.5px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all .18s;}
-.btn-p:hover{background:var(--gold-light);}
-.btn-s{background:none;color:var(--charcoal);border:1px solid var(--border);padding:11px 22px;border-radius:5px;font-family:'DM Sans',sans-serif;font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all .18s;}
-.btn-s:hover{border-color:var(--gold);color:var(--gold);}
+/* TERMS */
+.terms-list{display:flex;flex-direction:column;gap:10px;}
+.term-row{display:flex;gap:12px;align-items:flex-start;}
+.term-icon{width:22px;height:22px;border-radius:50%;background:var(--gold-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.term-icon svg{width:11px;height:11px;}
+.term-text{font-size:12.5px;color:var(--text-body);line-height:1.55;}
+.term-text strong{color:var(--charcoal);font-weight:500;}
+
+/* SIGNATURE */
+.sig-block{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:8px;}
+.sig-field{border-bottom:1px solid var(--border);padding-bottom:8px;}
+.sig-label{font-size:9.5px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-top:8px;}
+
+/* P FOOTER */
+.p-footer{background:var(--charcoal);padding:20px 44px;display:flex;justify-content:space-between;align-items:center;}
+.p-footer-brand{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--gold);letter-spacing:0.15em;}
+.p-footer-note{font-size:10.5px;color:rgba(253,250,244,0.35);letter-spacing:0.05em;}
+
+/* ACTION BAR */
+.action-bar{display:flex;gap:10px;margin-top:20px;justify-content:flex-end;}
+.action-btn{padding:9px 20px;border-radius:5px;font-family:'DM Sans',sans-serif;font-size:11.5px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border:none;transition:all 0.2s;}
+.action-btn.primary{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);}
+.action-btn.primary:hover{opacity:0.88;transform:translateY(-1px);}
+.action-btn.ghost{background:transparent;border:1px solid var(--border);color:var(--text-body);}
+.action-btn.ghost:hover{border-color:var(--gold);color:var(--gold);}
+
+/* TABS */
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--border-soft);margin-bottom:28px;}
+.tab{padding:8px 18px;font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all 0.2s;}
+.tab.active{color:var(--gold);border-bottom-color:var(--gold);}
+.tab:hover:not(.active){color:var(--charcoal);}
 
 /* MODAL */
-.modal-bg{display:none;position:fixed;inset:0;background:rgba(24,24,26,.6);z-index:200;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
-.modal-bg.open{display:flex;}
-.modal{background:var(--white);border-radius:10px;padding:34px;width:500px;max-height:85vh;overflow-y:auto;box-shadow:var(--shadow-lg);}
-.modal h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;margin-bottom:22px;}
-.modal-actions{display:flex;gap:10px;margin-top:22px;}
+.modal-overlay{position:fixed;inset:0;background:rgba(24,24,26,0.65);backdrop-filter:blur(4px);z-index:100;display:none;align-items:center;justify-content:center;}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--white);border-radius:10px;padding:32px;width:520px;max-width:94vw;box-shadow:var(--shadow-lg);}
+.modal-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--charcoal);margin-bottom:20px;}
+.modal-actions{display:flex;gap:10px;margin-top:24px;justify-content:flex-end;}
 
+/* TOAST */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--charcoal);color:var(--white);padding:12px 20px;border-radius:6px;font-size:12.5px;box-shadow:var(--shadow-lg);border-left:3px solid var(--gold);opacity:0;transform:translateY(8px);transition:all 0.3s;z-index:200;pointer-events:none;}
+.toast.show{opacity:1;transform:translateY(0);}
+
+/* PRINT */
 @media print{
-  .sidebar,.tabs,.action-bar,.modal-bg{display:none!important;}
+  .sidebar,.action-bar,.tabs,.modal-overlay,.toast{display:none!important;}
   .shell{display:block;}
-  .main{padding:0;max-width:100%;}
-  .pg-head{display:none;}
-  .panel{display:block!important;}
+  .main{padding:0;}
+  .proposal{box-shadow:none;border:none;}
+}
+
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr;}
+  .sidebar{position:relative;height:auto;}
+  .main{padding:24px 16px;}
+  .p-hero,.p-body,.p-footer{padding-left:24px;padding-right:24px;}
+  .p-grid{grid-template-columns:1fr;}
+  .sig-block{grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
+
 <div class="shell">
 
-<!-- ── SIDEBAR ── -->
+<!-- SIDEBAR -->
 <aside class="sidebar">
-  <div class="s-logo">AMPLIFY</div>
-  <div class="s-tagline">Marketing & Business Scaling</div>
+  <div class="s-logo">Amplify</div>
+  <div class="s-tagline">Proposal Builder</div>
+
+  <div class="s-label">Client Info</div>
+
+  <div class="s-field">
+    <label>Client / Brand Name</label>
+    <input type="text" id="clientName" placeholder="e.g. Nike, Gymshark" oninput="update()">
+  </div>
+  <div class="s-field">
+    <label>Contact Name</label>
+    <input type="text" id="contactName" placeholder="First Last" oninput="update()">
+  </div>
+  <div class="s-field">
+    <label>Industry / Niche</label>
+    <input type="text" id="industry" placeholder="Fitness, Beauty, Tech…" oninput="update()">
+  </div>
+  <div class="s-field">
+    <label>Platform Focus</label>
+    <select id="platform" onchange="update()">
+      <option value="Instagram + TikTok">Instagram + TikTok</option>
+      <option value="Instagram">Instagram</option>
+      <option value="TikTok">TikTok</option>
+      <option value="YouTube">YouTube</option>
+      <option value="Multi-Platform">Multi-Platform</option>
+    </select>
+  </div>
+
   <div class="s-divider"></div>
+  <div class="s-label">Proposal Details</div>
 
-  <div class="s-label">Hot Leads</div>
-  <button class="cl-btn active" onclick="loadClient('hair')" id="btn-hair">
-    <span class="cn">Salon / Hair Dresser</span>
-    <span class="ct">Beauty & Lifestyle</span>
-    <span class="cs">● Hot Lead</span>
-  </button>
-  <button class="cl-btn" onclick="loadClient('cleaning')" id="btn-cleaning">
-    <span class="cn">Drone Cleaning Co.</span>
-    <span class="ct">Drone Cleaning Services / B2B</span>
-    <span class="cs">● Hot Lead</span>
-  </button>
+  <div class="s-field">
+    <label>Campaign Title</label>
+    <input type="text" id="campaignTitle" placeholder="Spring Collection 2025" oninput="update()">
+  </div>
+  <div class="s-field">
+    <label>Valid Until</label>
+    <input type="date" id="validDate" oninput="update()">
+  </div>
+  <div class="s-field">
+    <label>Your Name / Agency</label>
+    <input type="text" id="creatorName" placeholder="Your name or agency" oninput="update()">
+  </div>
+  <div class="s-field">
+    <label>Custom Note (optional)</label>
+    <textarea id="customNote" placeholder="A personal note to the client…" oninput="update()"></textarea>
+  </div>
 
   <div class="s-divider"></div>
-  <div class="s-label">Templates</div>
-  <button class="cl-btn" onclick="loadClient('blank')" id="btn-blank">
-    <span class="cn">New Client</span>
-    <span class="ct">Blank Template</span>
-    <span class="cs">— Draft</span>
-  </button>
-  <button class="add-btn" onclick="openModal()">+ Add Client</button>
+  <div class="s-label">Services &amp; Pricing</div>
+  <div class="s-services" id="serviceList"></div>
 
-  <div class="s-footer">Full-service modular proposals.<br>Export to PDF via Print.</div>
+  <div class="s-divider"></div>
+  <div class="s-label">Discount</div>
+  <div class="s-field">
+    <label>Discount (%)</label>
+    <input type="number" id="discount" min="0" max="100" value="0" oninput="update()">
+  </div>
+
+  <div class="s-divider"></div>
+  <button class="s-btn" onclick="openExportModal()">Export / Download PDF</button>
+  <button class="s-btn secondary" onclick="resetForm()">Reset Form</button>
+
 </aside>
 
-<!-- ── MAIN ── -->
+<!-- MAIN -->
 <main class="main">
-  <div class="pg-head">
-    <h1>Client <em>Proposal</em> Builder</h1>
-    <p>Full-service marketing & business scaling proposals. Select services à la carte — pricing totals automatically. Switch clients from the sidebar.</p>
+
+  <div class="page-header">
+    <div class="page-title">Proposal Preview</div>
+    <div class="page-sub">Live preview updates as you type — export when ready.</div>
   </div>
 
   <div class="tabs">
-    <button class="tab-btn active" onclick="switchTab('intake')">01 — Client Intake</button>
-    <button class="tab-btn" onclick="switchTab('services')">02 — Services</button>
-    <button class="tab-btn" onclick="switchTab('terms')">03 — Terms & Pricing</button>
-    <button class="tab-btn" onclick="switchTab('preview')">04 — Proposal Preview</button>
+    <div class="tab active" onclick="switchTab('proposal',this)">Proposal</div>
+    <div class="tab" onclick="switchTab('email',this)">Email Template</div>
+    <div class="tab" onclick="switchTab('followup',this)">Follow-Up</div>
   </div>
 
-  <!-- ── TAB 1: INTAKE ── -->
-  <div class="panel active" id="intake-panel">
+  <!-- PROPOSAL TAB -->
+  <div id="tab-proposal">
 
-    <div class="sec-head"><span class="sec-num">1</span> Business Information</div>
-    <div class="grid2 mb24">
-      <div class="fg"><label>Business Name</label><input id="biz-name" placeholder="e.g. Glow Studio Sugar Land"></div>
-      <div class="fg"><label>Owner / Contact Name</label><input id="contact-name" placeholder="e.g. Jessica M."></div>
-      <div class="fg"><label>Industry / Niche</label>
-        <select id="industry">
-          <option value="">Select...</option>
-          <option>Beauty & Salon</option><option>Commercial Cleaning</option>
-          <option>Restaurant / Food</option><option>Real Estate</option>
-          <option>Fitness & Wellness</option><option>Retail / eCommerce</option>
-          <option>Professional Services</option><option>Home Services</option>
-          <option>Healthcare / Med Spa</option><option>Construction / Trades</option>
-          <option>Legal / Finance</option><option>Other</option>
-        </select>
-      </div>
-      <div class="fg"><label>Business Type</label>
-        <select id="biz-type">
-          <option value="">Select...</option>
-          <option>B2C (Consumer-Facing)</option><option>B2B (Business-Facing)</option>
-          <option>Both B2B & B2C</option><option>eCommerce</option>
-        </select>
-      </div>
-      <div class="fg"><label>Email</label><input id="contact-email" type="email" placeholder="client@business.com"></div>
-      <div class="fg"><label>Phone</label><input id="contact-phone" placeholder="(832) 000-0000"></div>
-      <div class="fg"><label>Website (if any)</label><input id="website" placeholder="https://"></div>
-      <div class="fg"><label>Location / City</label><input id="location" placeholder="e.g. Sugar Land, TX"></div>
-      <div class="fg full"><label>Event Notes — What did your rep learn?</label><textarea id="biz-notes" rows="3" placeholder="Pain points, goals, what they're currently doing, any budget hints..."></textarea></div>
-    </div>
+  <div class="proposal" id="proposalDoc">
 
-    <div class="sec-head"><span class="sec-num">2</span> Current Marketing Presence</div>
-    <div class="grid3 mb24">
-      <div class="fg"><label>Instagram</label><input id="ig" placeholder="@handle or 'None'"></div>
-      <div class="fg"><label>TikTok</label><input id="tiktok" placeholder="@handle or 'None'"></div>
-      <div class="fg"><label>Facebook</label><input id="fb" placeholder="Page name or 'None'"></div>
-      <div class="fg"><label>IG Followers</label>
-        <select id="ig-size">
-          <option>None / No Account</option><option>Under 500</option>
-          <option>500 – 2,000</option><option>2,000 – 10,000</option><option>10,000+</option>
-        </select>
-      </div>
-      <div class="fg"><label>Google Reviews</label>
-        <select id="reviews">
-          <option>None / Not Listed</option><option>Under 10</option>
-          <option>10 – 50</option><option>50 – 200</option><option>200+</option>
-        </select>
-      </div>
-      <div class="fg"><label>Current Ad Spend / mo</label>
-        <select id="ad-spend">
-          <option>$0 — None</option><option>Under $500</option>
-          <option>$500 – $2,000</option><option>$2,000 – $5,000</option><option>$5,000+</option>
-        </select>
+    <!-- HERO -->
+    <div class="p-hero">
+      <div class="p-hero-eyebrow" id="h-eyebrow">Partnership Proposal</div>
+      <div class="p-hero-title" id="h-title">Brand Collaboration Proposal</div>
+      <div class="p-hero-sub" id="h-sub">Prepared exclusively for your brand</div>
+      <div class="p-hero-meta">
+        <div class="p-hero-meta-item">
+          <div class="p-hero-meta-label">Prepared by</div>
+          <div class="p-hero-meta-val" id="h-creator">Your Name</div>
+        </div>
+        <div class="p-hero-meta-item">
+          <div class="p-hero-meta-label">Valid Until</div>
+          <div class="p-hero-meta-val" id="h-valid">Open</div>
+        </div>
+        <div class="p-hero-meta-item">
+          <div class="p-hero-meta-label">Platform</div>
+          <div class="p-hero-meta-val" id="h-platform">Instagram + TikTok</div>
+        </div>
       </div>
     </div>
 
-    <div class="sec-head"><span class="sec-num">3</span> Primary Goals & Pain Points</div>
-    <div class="tag-cloud" id="pain-cloud">
-      <div class="ptag" onclick="this.classList.toggle('on')">No consistent content</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">Low online visibility</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">Not ranking on Google</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">No lead generation system</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">Weak brand presence</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">No time to manage marketing</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">Competitors outranking them</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">No UGC / video content</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">Low social engagement</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">No ads running</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">Bad or few reviews</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">No website or outdated site</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">Scaling but no systems</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">No financial visibility</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">Disorganized operations</div>
-      <div class="ptag" onclick="this.classList.toggle('on')">New business / just launched</div>
+    <div class="p-body">
+
+      <!-- OVERVIEW -->
+      <div class="p-section">
+        <div class="p-section-title">Partnership Overview</div>
+        <div class="p-grid">
+          <div class="p-card">
+            <div class="p-card-label">Client</div>
+            <div class="p-card-val" id="ov-client">Brand Name</div>
+          </div>
+          <div class="p-card">
+            <div class="p-card-label">Contact</div>
+            <div class="p-card-val" id="ov-contact">—</div>
+          </div>
+          <div class="p-card">
+            <div class="p-card-label">Industry</div>
+            <div class="p-card-val" id="ov-industry">—</div>
+          </div>
+          <div class="p-card">
+            <div class="p-card-label">Campaign</div>
+            <div class="p-card-val" id="ov-campaign">—</div>
+          </div>
+        </div>
+        <div id="note-block" style="display:none;margin-top:16px;padding:14px 18px;background:var(--gold-pale);border-left:3px solid var(--gold);border-radius:0 5px 5px 0;font-size:12.5px;color:var(--text-body);line-height:1.6;">
+          <span id="note-text"></span>
+        </div>
+      </div>
+
+      <!-- SERVICES -->
+      <div class="p-section">
+        <div class="p-section-title">Deliverables &amp; Investment</div>
+        <table class="svc-table">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Type</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody id="svc-tbody"></tbody>
+        </table>
+        <div class="totals" id="totals-block">
+          <div class="totals-row" id="subtotal-row" style="display:none">
+            <span>Subtotal</span><span id="t-subtotal"></span>
+          </div>
+          <div class="totals-row" id="discount-row" style="display:none">
+            <span id="discount-label">Discount</span><span id="t-discount"></span>
+          </div>
+          <div class="totals-row total">
+            <span>Total Investment</span><span id="t-total">$0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIMELINE -->
+      <div class="p-section">
+        <div class="p-section-title">Campaign Timeline</div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+            <div class="tl-content">
+              <div class="tl-phase">Phase 1 — Onboarding &amp; Brief</div>
+              <div class="tl-desc">Contract signing, brand brief review, creative direction alignment.</div>
+              <div class="tl-dur">Week 1</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+            <div class="tl-content">
+              <div class="tl-phase">Phase 2 — Content Creation</div>
+              <div class="tl-desc">Shoot, edit, and submit content drafts for approval.</div>
+              <div class="tl-dur">Weeks 2–3</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+            <div class="tl-content">
+              <div class="tl-phase">Phase 3 — Review &amp; Approval</div>
+              <div class="tl-desc">Brand reviews content; up to 2 revision rounds included.</div>
+              <div class="tl-dur">Week 3</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+            <div class="tl-content">
+              <div class="tl-phase">Phase 4 — Go Live</div>
+              <div class="tl-desc">Content published per agreed schedule. Performance tracking begins.</div>
+              <div class="tl-dur">Week 4</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TERMS -->
+      <div class="p-section">
+        <div class="p-section-title">Terms &amp; Conditions</div>
+        <div class="terms-list">
+          <div class="term-row">
+            <div class="term-icon"><svg viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#C8A84B" stroke-width="1.2"/><path d="M4 6l1.5 1.5L8 4" stroke="#C8A84B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="term-text"><strong>Payment:</strong> 50% deposit required to begin. Remaining balance due upon content delivery.</div>
+          </div>
+          <div class="term-row">
+            <div class="term-icon"><svg viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#C8A84B" stroke-width="1.2"/><path d="M4 6l1.5 1.5L8 4" stroke="#C8A84B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="term-text"><strong>Revisions:</strong> Up to 2 rounds of revisions are included per deliverable.</div>
+          </div>
+          <div class="term-row">
+            <div class="term-icon"><svg viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#C8A84B" stroke-width="1.2"/><path d="M4 6l1.5 1.5L8 4" stroke="#C8A84B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="term-text"><strong>Usage Rights:</strong> Brand may use content for paid ads for 3 months. Extended licensing available.</div>
+          </div>
+          <div class="term-row">
+            <div class="term-icon"><svg viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#C8A84B" stroke-width="1.2"/><path d="M4 6l1.5 1.5L8 4" stroke="#C8A84B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="term-text"><strong>Exclusivity:</strong> 30-day category exclusivity included. Extended exclusivity priced separately.</div>
+          </div>
+          <div class="term-row">
+            <div class="term-icon"><svg viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#C8A84B" stroke-width="1.2"/><path d="M4 6l1.5 1.5L8 4" stroke="#C8A84B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="term-text"><strong>FTC Compliance:</strong> All sponsored content will be clearly disclosed per FTC guidelines.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIGNATURE -->
+      <div class="p-section">
+        <div class="p-section-title">Agreement &amp; Signature</div>
+        <p style="font-size:12.5px;color:var(--text-muted);margin-bottom:20px;line-height:1.6;">By signing below, both parties agree to the deliverables, investment, and terms outlined in this proposal.</p>
+        <div class="sig-block">
+          <div>
+            <div class="sig-field"></div>
+            <div class="sig-label">Creator / Agency Signature</div>
+            <div style="margin-top:12px;" class="sig-field"></div>
+            <div class="sig-label">Date</div>
+          </div>
+          <div>
+            <div class="sig-field"></div>
+            <div class="sig-label" id="sig-client-label">Brand Signature</div>
+            <div style="margin-top:12px;" class="sig-field"></div>
+            <div class="sig-label">Date</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /p-body -->
+
+    <div class="p-footer">
+      <div class="p-footer-brand" id="footer-brand">AMPLIFY</div>
+      <div class="p-footer-note" id="footer-note">Confidential — Prepared exclusively for your brand</div>
     </div>
 
-    <div class="action-bar">
-      <button class="btn-p" onclick="switchTab('services')">Next: Build Service Package →</button>
+  </div><!-- /proposal -->
+
+  <div class="action-bar">
+    <button class="action-btn ghost" onclick="copyLink()">Copy Share Link</button>
+    <button class="action-btn primary" onclick="openExportModal()">Download PDF</button>
+  </div>
+
+  </div><!-- /tab-proposal -->
+
+  <!-- EMAIL TAB -->
+  <div id="tab-email" style="display:none">
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:32px 36px;box-shadow:var(--shadow-sm);">
+      <div style="font-size:9.5px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px;">Outreach Email Template</div>
+      <div id="email-template" style="font-family:'DM Sans',sans-serif;font-size:13.5px;color:var(--text-body);line-height:1.75;white-space:pre-wrap;"></div>
+      <div class="action-bar">
+        <button class="action-btn ghost" onclick="copyEmail()">Copy Email</button>
+      </div>
     </div>
   </div>
 
-  <!-- ── TAB 2: SERVICES ── -->
-  <div class="panel" id="services-panel">
-
-    <div class="sec-head"><span class="sec-num">4</span> Select Services À La Carte</div>
-    <p style="font-size:12px;color:var(--text-muted);margin-bottom:20px;">Click any service to add it to this client's proposal. Pricing updates live below.</p>
-
-    <div class="svc-categories" id="svc-categories">
-      <!-- Built by JS -->
-    </div>
-
-    <!-- SERVICE COUNT -->
-    <div style="margin-bottom:24px;padding:14px 18px;background:var(--charcoal);border-radius:var(--r);display:flex;align-items:center;justify-content:space-between;">
-      <span style="font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted);">Selected Services</span>
-      <span style="font-size:13px;color:var(--gold);font-weight:500;" id="svc-count">0 services selected</span>
-    </div>
-
-    <div class="sec-head"><span class="sec-num">5</span> Custom Proposal Message</div>
-    <div class="grid2 mb24">
-      <div class="fg full"><label>Personalized Opening Statement</label><textarea id="custom-msg" rows="4" placeholder="Write a message tailored to this client's situation..."></textarea></div>
-      <div class="fg full"><label>Expected Outcomes (90 Days)</label><textarea id="outcomes" rows="3" placeholder="e.g. First page Google rankings, consistent lead flow, 3x follower growth..."></textarea></div>
-    </div>
-
-    <div class="action-bar">
-      <button class="btn-s" onclick="switchTab('intake')">← Back</button>
-      <button class="btn-p" onclick="switchTab('terms')">Next: Terms & Pricing →</button>
-    </div>
-  </div>
-
-  <!-- ── TAB 3: TERMS ── -->
-  <div class="panel" id="terms-panel">
-    <div class="sec-head"><span class="sec-num">6</span> Contract & Billing Terms</div>
-    <div class="grid2 mb24">
-      <div class="fg"><label>Contract Length</label>
-        <select id="contract">
-          <option>Month-to-Month</option>
-          <option>3 Months</option>
-          <option>6 Months (5% discount)</option>
-          <option>12 Months (10% discount)</option>
-        </select>
+  <!-- FOLLOWUP TAB -->
+  <div id="tab-followup" style="display:none">
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:32px 36px;box-shadow:var(--shadow-sm);">
+      <div style="font-size:9.5px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px;">Follow-Up Email Template</div>
+      <div id="followup-template" style="font-family:'DM Sans',sans-serif;font-size:13.5px;color:var(--text-body);line-height:1.75;white-space:pre-wrap;"></div>
+      <div class="action-bar">
+        <button class="action-btn ghost" onclick="copyFollowup()">Copy Follow-Up</button>
       </div>
-      <div class="fg"><label>Start Date</label><input id="start-date" type="date"></div>
-      <div class="fg"><label>Onboarding / Setup Fee</label>
-        <input id="setup-fee" value="Dependent upon services selected" readonly style="background:var(--cream-dark);color:var(--text-muted);cursor:default;">
-      </div>
-      <div class="fg"><label>Billing Cycle</label>
-        <select id="billing">
-          <option>Monthly</option><option>Quarterly (upfront)</option><option>Annual (upfront)</option>
-        </select>
-      </div>
-      <div class="fg"><label>Price Override (optional)</label><input id="price-override" placeholder="Leave blank to use calculated total"></div>
-      <div class="fg"><label>Discount / Promo</label><input id="discount" placeholder="e.g. 10% networking event discount"></div>
     </div>
-
-    <div class="sec-head"><span class="sec-num">7</span> Scope Notes & Deliverables</div>
-    <div class="grid2 mb24">
-      <div class="fg full"><label>Scope Exclusions / Notes</label><textarea id="scope-notes" rows="3" placeholder="e.g. Ad spend is not included in management fees. Client provides brand assets by Day 1."></textarea></div>
-      <div class="fg full"><label>Internal Notes (not shown in proposal)</label><textarea id="internal-notes" rows="2" placeholder="For your eyes only — budget signals, objections, referral source..."></textarea></div>
-    </div>
-
-    <div class="action-bar">
-      <button class="btn-s" onclick="switchTab('services')">← Back</button>
-      <button class="btn-p" onclick="switchTab('preview');buildPreview()">Generate Proposal →</button>
-    </div>
-  </div>
-
-  <!-- ── TAB 4: PREVIEW ── -->
-  <div class="panel" id="preview-panel">
-    <div id="prop-output"></div>
-    <div class="action-bar">
-      <button class="btn-p" onclick="submitToAMPLIFY()" id="submit-btn">📤 Submit to AMPLIFY</button>
-      <button class="btn-p" onclick="window.print()">🖨 Print / Save PDF</button>
-      <button class="btn-s" onclick="switchTab('terms')">← Edit</button>
-      <button class="btn-s" onclick="copyProposal()">Copy Text</button>
-    </div>
-    <div id="submit-status" style="display:none;margin-top:16px;padding:14px 18px;border-radius:7px;font-size:13px;font-weight:500;"></div>
   </div>
 
 </main>
 </div>
 
-<!-- MODAL -->
-<div class="modal-bg" id="modal-bg">
+<!-- EXPORT MODAL -->
+<div class="modal-overlay" id="exportModal">
   <div class="modal">
-    <h3>Add New Client</h3>
-    <div class="grid2">
-      <div class="fg full"><label>Business Name</label><input id="nc-name" placeholder="e.g. Bella's Boutique"></div>
-      <div class="fg"><label>Industry</label><input id="nc-industry" placeholder="e.g. Retail"></div>
-      <div class="fg"><label>Status</label>
-        <select id="nc-status">
-          <option>Hot Lead</option><option>Warm Lead</option><option>Cold Lead</option><option>Active Client</option>
-        </select>
+    <div class="modal-title">Export Proposal</div>
+    <p style="font-size:13px;color:var(--text-muted);line-height:1.65;">Your proposal is ready to export. Choose your preferred method below.</p>
+    <div style="margin-top:20px;display:flex;flex-direction:column;gap:12px;">
+      <div style="background:var(--cream);border:1px solid var(--border-soft);border-radius:6px;padding:14px 16px;">
+        <div style="font-size:11.5px;font-weight:500;color:var(--charcoal);margin-bottom:4px;">Print to PDF</div>
+        <div style="font-size:12px;color:var(--text-muted);">Use your browser’s print dialog — select “Save as PDF” as the destination. Sidebar and controls are hidden automatically.</div>
+      </div>
+      <div style="background:var(--cream);border:1px solid var(--border-soft);border-radius:6px;padding:14px 16px;">
+        <div style="font-size:11.5px;font-weight:500;color:var(--charcoal);margin-bottom:4px;">Share Link</div>
+        <div style="font-size:12px;color:var(--text-muted);">Copy the share link to send a live preview of this proposal to your client.</div>
       </div>
     </div>
     <div class="modal-actions">
-      <button class="btn-p" onclick="addClient()">Add Client</button>
-      <button class="btn-s" onclick="closeModal()">Cancel</button>
+      <button class="action-btn ghost" onclick="closeModal()">Cancel</button>
+      <button class="action-btn primary" onclick="window.print()">Print / Save PDF</button>
     </div>
   </div>
 </div>
 
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
 <script>
-// ── SERVICE CATALOG ──
-const CATALOG = [
-  {
-    cat: 'Social Media Management',
-    icon: '📱',
-    desc: 'Content & growth',
-    services: [
-      { name: 'AI Caption & Content Generation', price: 197, desc: 'AI-crafted captions, hashtags, and post copy' },
-      { name: 'Automated Posting (IG + TikTok)', price: 197, desc: 'Scheduled posting at peak engagement times' },
-      { name: 'AI UGC Video Ads (2/mo)', price: 397, desc: 'AI-generated user-generated-style video content' },
-      { name: 'Engagement Network Boost', price: 297, desc: 'Automated engagement to grow reach organically' },
-      { name: 'Content Calendar & Strategy', price: 197, desc: 'Monthly editorial calendar with posting strategy' },
-      { name: 'Profile Optimization & Audit', price: 97, desc: 'Bios, links, highlights, and brand consistency' },
-    ]
-  },
-  {
-    cat: 'SEO & Local SEO',
-    icon: '🔍',
-    desc: 'Search visibility',
-    services: [
-      { name: 'Local SEO (Google Business Optimization)', price: 297, desc: 'GBP setup, optimization, and weekly posts' },
-      { name: 'On-Page SEO (Website)', price: 397, desc: 'Meta tags, schema, page speed, content optimization' },
-      { name: 'Citation Building & Directory Listings', price: 197, desc: 'NAP consistency across 50+ directories' },
-      { name: 'Monthly SEO Reporting', price: 97, desc: 'Keyword rankings, traffic, and backlink report' },
-      { name: 'Backlink Outreach Campaign', price: 497, desc: 'Authority building through targeted link acquisition' },
-      { name: 'Keyword Research & Strategy', price: 197, desc: 'Competitor gap analysis and target keyword mapping' },
-    ]
-  },
-  {
-    cat: 'Geo / Geofencing Ads',
-    icon: '📍',
-    desc: 'Location-based targeting',
-    services: [
-      { name: 'Geofencing Campaign Setup', price: 497, desc: 'Hyper-local ad targeting around specific locations' },
-      { name: 'Geofencing Monthly Management', price: 397, desc: 'Ongoing optimization, A/B testing, reporting' },
-      { name: 'Competitor Geofencing', price: 297, desc: 'Target customers visiting competitor locations' },
-      { name: 'Event & Trade Show Targeting', price: 297, desc: 'Capture audiences at relevant events' },
-    ]
-  },
-  {
-    cat: 'Paid Ads (Meta & Google)',
-    icon: '💰',
-    desc: 'Performance advertising',
-    services: [
-      { name: 'Meta Ads Management (Facebook/IG)', price: 597, desc: 'Campaign strategy, creative, targeting & optimization' },
-      { name: 'Google Ads Management', price: 597, desc: 'Search, display, and local service ads' },
-      { name: 'Ad Creative Production', price: 297, desc: 'Graphics, copy, and video assets for campaigns' },
-      { name: 'Retargeting Campaign Setup', price: 297, desc: 'Re-engage website visitors and past customers' },
-      { name: 'Lead Generation Funnel', price: 497, desc: 'Landing page + ad funnel built for lead capture' },
-    ]
-  },
-  {
-    cat: 'Email & SMS Marketing',
-    icon: '✉️',
-    desc: 'Direct outreach & retention',
-    services: [
-      { name: 'Email Marketing Setup & Management', price: 297, desc: 'List setup, templates, sequences, and monthly sends' },
-      { name: 'SMS Marketing Campaigns', price: 197, desc: 'Promotional and transactional SMS broadcasts' },
-      { name: 'Automated Email Sequences', price: 297, desc: 'Welcome, nurture, and re-engagement flows' },
-      { name: 'CRM Integration & List Management', price: 197, desc: 'Clean segmented lists connected to your CRM' },
-    ]
-  },
-  {
-    cat: 'Website & Landing Pages',
-    icon: '🌐',
-    desc: 'Web presence & conversion',
-    services: [
-      { name: 'Business Website (5–7 pages)', price: 1497, desc: 'Custom-designed, SEO-ready, mobile-optimized site' },
-      { name: 'Landing Page Build', price: 497, desc: 'High-converting standalone page for campaigns or offers' },
-      { name: 'Website Audit & UX Review', price: 197, desc: 'Conversion rate analysis with action recommendations' },
-      { name: 'Website Maintenance (monthly)', price: 97, desc: 'Updates, backups, speed checks, and security patches' },
-    ]
-  },
-  {
-    cat: 'Reputation Management',
-    icon: '⭐',
-    desc: 'Reviews & brand trust',
-    services: [
-      { name: 'Review Generation Campaign', price: 197, desc: 'Automated review requests via email/SMS post-service' },
-      { name: 'Review Monitoring & Response', price: 197, desc: 'Monthly monitoring and professional response management' },
-      { name: 'Reputation Audit & Strategy', price: 147, desc: 'Full audit of online mentions, reviews, and brand image' },
-      { name: 'Negative Review Suppression', price: 297, desc: 'Content and SEO strategy to push down negative results' },
-    ]
-  },
-  {
-    cat: 'Business Consulting & Operations',
-    icon: '📊',
-    desc: 'Strategy, financials & SOPs',
-    services: [
-      { name: 'Monthly Business Strategy Consultation', price: 497, desc: 'Monthly 1-on-1 with growth roadmap and accountability' },
-      { name: 'Financial Reporting & Dashboard', price: 397, desc: 'Monthly P&L, cash flow, and KPI reporting setup' },
-      { name: 'SOP Development & Documentation', price: 597, desc: 'Build standard operating procedures for key business processes' },
-      { name: 'SOP Audit & Optimization', price: 297, desc: 'Review existing SOPs and identify inefficiencies' },
-      { name: 'Business Systems Buildout (CRM/Ops)', price: 797, desc: 'GoHighLevel or equivalent CRM + workflow automation setup' },
-      { name: 'Competitor & Market Analysis', price: 297, desc: 'Deep-dive into market position and competitive gaps' },
-    ]
-  },
+const SERVICES = [
+  {id:'ig-post',    name:'Instagram Post',        type:'Static',   price:500},
+  {id:'ig-reel',    name:'Instagram Reel',         type:'Video',    price:800},
+  {id:'ig-story',   name:'Instagram Stories (x3)', type:'Stories',  price:350},
+  {id:'tt-video',   name:'TikTok Video',           type:'Video',    price:700},
+  {id:'yt-short',   name:'YouTube Short',          type:'Video',    price:600},
+  {id:'yt-int',     name:'YouTube Integration',    type:'Video',    price:1800},
+  {id:'yt-ded',     name:'YouTube Dedicated',      type:'Video',    price:3500},
+  {id:'blog',       name:'Blog / Newsletter',      type:'Written',  price:400},
+  {id:'ugc',        name:'UGC Package (5 assets)', type:'UGC',      price:950},
+  {id:'usage',      name:'Usage Rights (3mo)',     type:'Licensing',price:300},
+  {id:'excl',       name:'Exclusivity (30 days)',  type:'Add-on',   price:500},
+  {id:'strategy',   name:'Strategy Session',       type:'Consult',  price:250},
 ];
 
-// Build service cards
-function buildCatalog() {
-  const container = document.getElementById('svc-categories');
-  container.innerHTML = '';
-  CATALOG.forEach(cat => {
-    const section = document.createElement('div');
-    section.innerHTML = `
-      <div class="svc-cat-header">
-        <span class="svc-cat-icon">${cat.icon}</span>
-        <span class="svc-cat-title">${cat.cat}</span>
-        <span class="svc-cat-desc">${cat.desc}</span>
+const selected = new Set();
+
+function initServices(){
+  const el = document.getElementById('serviceList');
+  SERVICES.forEach(s=>{
+    const row = document.createElement('div');
+    row.className='svc-row';
+    row.dataset.id=s.id;
+    row.innerHTML=`
+      <div class="svc-check">
+        <svg width="8" height="6" viewBox="0 0 8 6" fill="none">
+          <path d="M1 3l2 2 4-4" stroke="#18181A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </div>
-      <div class="svc-grid">
-        ${cat.services.map(svc => `
-          <div class="svc-card" onclick="toggleSvc(this, ${svc.price})">
-            <div class="svc-chk"></div>
-            <div class="svc-info">
-              <div class="svc-name">${svc.name}</div>
-              <div class="svc-price">$${svc.price.toLocaleString()}/mo</div>
-              <div class="svc-desc">${svc.desc}</div>
-            </div>
-          </div>
-        `).join('')}
-      </div>
+      <span class="svc-name">${s.name}</span>
+      <span class="svc-price">$${s.price.toLocaleString()}</span>
     `;
-    container.appendChild(section);
+    row.addEventListener('click',()=>{
+      if(selected.has(s.id)){selected.delete(s.id);row.classList.remove('active');}
+      else{selected.add(s.id);row.classList.add('active');}
+      update();
+    });
+    el.appendChild(row);
   });
 }
 
-function toggleSvc(card, price) {
-  card.classList.toggle('on');
-  updateTotal();
-}
+function g(id){return document.getElementById(id);}
+function val(id){return g(id)?g(id).value.trim():'';}
+function fmt(n){return '$'+n.toLocaleString('en-US',{minimumFractionDigits:0});}
 
-function updateTotal() {
-  const cards = document.querySelectorAll('.svc-card.on');
-  const count = cards.length;
-  document.getElementById('svc-count').textContent = count + ' service' + (count !== 1 ? 's' : '') + ' selected';
-}
+function update(){
+  const client   = val('clientName')||'Brand Name';
+  const contact  = val('contactName')||'—';
+  const industry = val('industry')||'—';
+  const platform = val('platform')||'Instagram + TikTok';
+  const campaign = val('campaignTitle')||'—';
+  const creator  = val('creatorName')||'Your Name';
+  const note     = val('customNote');
+  const discount = parseFloat(val('discount'))||0;
+  const dateRaw  = val('validDate');
+  const dateStr  = dateRaw ? new Date(dateRaw+'T00:00:00').toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}) : 'Open';
 
-// ── CLIENT DATA ──
-const CLIENTS = {
-  hair: {
-    bizName: 'Salon Client', contactName: '', industry: 'Beauty & Salon', bizType: 'B2C (Consumer-Facing)',
-    email: '', phone: '', website: '', location: 'Sugar Land, TX',
-    notes: 'Met at networking event. Hair dresser needing help with social media, marketing presence, and growing their local client base. No current strategy.',
-    ig: '', tiktok: '', fb: '', igSize: 'Under 500', reviews: 'Under 10', adSpend: '$0 — None',
-    pains: ['No consistent content','Low online visibility','Not ranking on Google','No time to manage marketing','Weak brand presence','Bad or few reviews'],
-    selectedSvcs: ['AI Caption & Content Generation','Automated Posting (IG + TikTok)','Local SEO (Google Business Optimization)','Profile Optimization & Audit','Review Generation Campaign','Review Monitoring & Response'],
-    customMsg: 'We know how hard it is to grow a salon while serving clients every day — marketing is the last thing you have time for. AMPLIFY handles your entire online presence end-to-end, from content to local SEO to reviews, so your chair stays full.',
-    outcomes: 'Consistent professional content across IG & TikTok, first-page Google Maps visibility, 3x growth in online reviews, and a measurable increase in new client bookings within 90 days.',
-    contract: 'Month-to-Month', startDate: '', setupFee: 'Dependent upon services selected', billing: 'Monthly',
-    discount: 'Networking event introductory rate', scopeNotes: 'Ad spend budget (if applicable) billed separately. Client to provide any existing brand photos.',
-  },
-  cleaning: {
-    bizName: 'Drone Cleaning Co.', contactName: '', industry: 'Drone Cleaning Services', bizType: 'B2B (Business-Facing)',
-    email: '', phone: '', website: '', location: 'Houston, TX Area',
-    notes: 'Met at networking event. Drone cleaning company — cleans buildings and solar panels using drone technology. Very low social and online presence. Looking for marketing to attract commercial contracts. B2B focused.',
-    ig: '', tiktok: '', fb: '', igSize: 'None / No Account', reviews: 'None / Not Listed', adSpend: '$0 — None',
-    pains: ['Low online visibility','Not ranking on Google','No lead generation system','Weak brand presence','No ads running','Bad or few reviews','Competitors outranking them'],
-    selectedSvcs: ['Local SEO (Google Business Optimization)','Citation Building & Directory Listings','Geofencing Campaign Setup','Geofencing Monthly Management','Google Ads Management','Review Generation Campaign','Monthly Business Strategy Consultation'],
-    customMsg: 'For a drone cleaning company, winning commercial contracts starts with being found and being trusted. AMPLIFY will build your entire digital footprint from scratch — Google presence, geofencing campaigns to reach property managers, and a reputation system that turns every completed job into a verified review.',
-    outcomes: 'Active Google Business Profile with consistent reviews, geofencing campaigns targeting commercial property managers and solar farm operators, first page local search rankings, and a trackable pipeline of inbound B2B leads within 90 days.',
-    contract: '3 Months', startDate: '', setupFee: 'Dependent upon services selected', billing: 'Monthly',
-    discount: 'Networking event introductory rate', scopeNotes: 'Google Ads spend budget billed directly to client account. AMPLIFY manages strategy and optimization.',
-  },
-  blank: {
-    bizName:'',contactName:'',industry:'',bizType:'',email:'',phone:'',website:'',location:'',notes:'',
-    ig:'',tiktok:'',fb:'',igSize:'None / No Account',reviews:'None / Not Listed',adSpend:'$0 — None',
-    pains:[],selectedSvcs:[],customMsg:'',outcomes:'',
-    contract:'Month-to-Month',startDate:'',setupFee:'Dependent upon services selected',billing:'Monthly',discount:'',scopeNotes:'',
+  g('h-eyebrow').textContent = `Partnership Proposal — ${platform}`;
+  g('h-title').textContent   = campaign !== '—' ? campaign : 'Brand Collaboration Proposal';
+  g('h-sub').textContent     = `Prepared exclusively for ${client}`;
+  g('h-creator').textContent = creator;
+  g('h-valid').textContent   = dateStr;
+  g('h-platform').textContent= platform;
+
+  g('ov-client').textContent  = client;
+  g('ov-contact').textContent = contact;
+  g('ov-industry').textContent= industry;
+  g('ov-campaign').textContent= campaign;
+
+  if(note){g('note-block').style.display='block';g('note-text').textContent=note;}
+  else{g('note-block').style.display='none';}
+
+  // Services table
+  const tbody = g('svc-tbody');
+  tbody.innerHTML='';
+  let subtotal=0;
+  const activeServices=[];
+  SERVICES.forEach(s=>{
+    if(!selected.has(s.id))return;
+    subtotal+=s.price;
+    activeServices.push(s);
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td>${s.name}</td><td><span class="svc-badge">${s.type}</span></td><td>${fmt(s.price)}</td>`;
+    tbody.appendChild(tr);
+  });
+  if(activeServices.length===0){
+    tbody.innerHTML='<tr><td colspan="3" style="color:var(--text-muted);font-size:12px;padding:16px 0;">No services selected — choose from the sidebar.</td></tr>';
   }
-};
 
-function loadClient(key) {
-  const c = CLIENTS[key];
-  if (!c) return;
+  const discountAmt = Math.round(subtotal*(discount/100));
+  const total = subtotal - discountAmt;
 
-  const fields = [
-    ['biz-name',c.bizName],['contact-name',c.contactName],['industry',c.industry],
-    ['biz-type',c.bizType],['contact-email',c.email],['contact-phone',c.phone],
-    ['website',c.website],['location',c.location],['biz-notes',c.notes],
-    ['ig',c.ig],['tiktok',c.tiktok],['fb',c.fb],['ig-size',c.igSize],
-    ['reviews',c.reviews],['ad-spend',c.adSpend],
-    ['custom-msg',c.customMsg],['outcomes',c.outcomes],
-    ['contract',c.contract],['start-date',c.startDate],['setup-fee',c.setupFee],
-    ['billing',c.billing],['discount',c.discount],['scope-notes',c.scopeNotes],
-  ];
-  fields.forEach(([id, val]) => {
-    const el = document.getElementById(id);
-    if (el) el.value = val || '';
-  });
-
-  // pains
-  document.querySelectorAll('.ptag').forEach(t => {
-    t.classList.toggle('on', c.pains.includes(t.textContent.trim()));
-  });
-
-  // services — rebuild catalog then select
-  buildCatalog();
-  setTimeout(() => {
-    document.querySelectorAll('.svc-card').forEach(card => {
-      const name = card.querySelector('.svc-name').textContent.trim();
-      if (c.selectedSvcs.includes(name)) card.classList.add('on');
-    });
-    updateTotal();
-  }, 0);
-
-  // sidebar buttons
-  document.querySelectorAll('.cl-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('btn-' + key)?.classList.add('active');
-
-  switchTab('intake');
-}
-
-function switchTab(tab) {
-  const tabs = ['intake','services','terms','preview'];
-  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', tabs[i] === tab));
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.getElementById(tab + '-panel').classList.add('active');
-}
-
-function buildPreview() {
-  const g = id => document.getElementById(id)?.value || '';
-  const bizName = g('biz-name') || 'Your Business';
-  const contact = g('contact-name') || 'Valued Client';
-  const industry = g('industry') || '—';
-  const bizType = g('biz-type') || '—';
-  const email = g('contact-email');
-  const phone = g('contact-phone');
-  const location = g('location');
-  const ig = g('ig'); const tiktok = g('tiktok'); const fb = g('fb');
-  const igSize = g('ig-size');
-  const reviews = g('reviews');
-  const adSpend = g('ad-spend');
-  const contract = g('contract');
-  const setupFee = g('setup-fee');
-  const billing = g('billing');
-  const discount = g('discount');
-  const scopeNotes = g('scope-notes');
-  const customMsg = g('custom-msg');
-  const outcomes = g('outcomes');
-  const startDate = g('start-date') ? new Date(g('start-date')).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}) : 'Upon Agreement';
-  const today = new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
-  const priceOverride = g('price-override');
-
-  // Selected services grouped by category
-  const selectedCards = [...document.querySelectorAll('.svc-card.on')];
-  let totalMonthly = 0;
-  const groupedSvcs = {};
-
-  CATALOG.forEach(cat => {
-    cat.services.forEach(svc => {
-      const found = selectedCards.find(c => c.querySelector('.svc-name').textContent.trim() === svc.name);
-      if (found) {
-        if (!groupedSvcs[cat.cat]) groupedSvcs[cat.cat] = [];
-        groupedSvcs[cat.cat].push(svc);
-        totalMonthly += svc.price;
-      }
-    });
-  });
-
-  const displayTotal = priceOverride || ('$' + totalMonthly.toLocaleString() + '/mo');
-  const pains = [...document.querySelectorAll('.ptag.on')].map(t => t.textContent.trim());
-  const contactLine = [email, phone, location].filter(Boolean).join(' · ');
-  const socials = [ig?`IG: ${ig}`:'', tiktok?`TikTok: ${tiktok}`:'', fb?`FB: ${fb}`:''].filter(Boolean).join(' · ') || 'No active accounts';
-
-  const svcGroupsHTML = Object.entries(groupedSvcs).map(([catName, svcs]) => `
-    <div class="svc-category-block">
-      <div class="svc-cat-label">${catName}</div>
-      <div class="svc-lines">
-        ${svcs.map(s => `
-          <div class="svc-line">
-            <span class="sl-name">${s.name}</span>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-  `).join('');
-
-  const opening = customMsg || `Thank you for the opportunity to work with ${bizName}. At AMPLIFY, we specialize in full-service marketing and business scaling — combining AI-powered content, paid media, SEO, and operational consulting to help businesses like yours grow faster and smarter.`;
-  const outcomesText = outcomes || `Measurable improvements in online visibility, lead generation, and brand authority within the first 90 days.`;
-  const painsHTML = pains.length ? pains.map(p => `<li>${p}</li>`).join('') : '<li>To be assessed during onboarding</li>';
-
-  document.getElementById('prop-output').innerHTML = `
-    <div class="prop-wrap">
-      <div class="prop-top">
-        <div class="prop-top-l">
-          <h2>Marketing & Growth Proposal</h2>
-          <p>Prepared for: ${bizName} &nbsp;·&nbsp; ${today}</p>
-        </div>
-        <div class="prop-top-r" style="text-align:right">
-          <div class="agt">AMPLIFY</div>
-          <div class="ags">Marketing & Business Scaling</div>
-        </div>
-      </div>
-      <div class="prop-body">
-
-        <div class="meta-row">
-          <div class="meta-box"><div class="ml">Client</div><div class="mv">${contact || bizName}</div></div>
-          <div class="meta-box"><div class="ml">Industry</div><div class="mv">${industry}</div></div>
-          <div class="meta-box"><div class="ml">Business Type</div><div class="mv">${bizType}</div></div>
-          <div class="meta-box"><div class="ml">Contact</div><div class="mv" style="font-size:11.5px">${contactLine || '—'}</div></div>
-        </div>
-
-        <div class="prop-sec">
-          <h3>Our Approach</h3>
-          <p>${opening}</p>
-        </div>
-
-        <div class="prop-sec">
-          <h3>Current Situation</h3>
-          <ul>
-            <li>Social media: ${socials}</li>
-            <li>Online following: ${igSize}</li>
-            <li>Google reviews: ${reviews}</li>
-            <li>Current ad investment: ${adSpend}</li>
-          </ul>
-          ${pains.length ? `<div style="margin-top:12px"><p style="font-size:11.5px;color:var(--text-muted);font-style:italic;margin-bottom:6px;">Challenges identified:</p><ul>${painsHTML}</ul></div>` : ''}
-        </div>
-
-        <div class="prop-sec">
-          <h3>Proposed Services (À La Carte)</h3>
-          ${svcGroupsHTML || '<p>No services selected yet.</p>'}
-          ${discount ? `<p style="font-size:11px;color:var(--text-muted);margin-top:8px;font-style:italic;">Discount applied: ${discount}</p>` : ''}
-        </div>
-
-        <div class="meta-row">
-          <div class="meta-box"><div class="ml">Contract</div><div class="mv">${contract}</div></div>
-          <div class="meta-box"><div class="ml">Billing</div><div class="mv">${billing}</div></div>
-          <div class="meta-box"><div class="ml">Start Date</div><div class="mv">${startDate}</div></div>
-          <div class="meta-box"><div class="ml">Onboarding Fee</div><div class="mv" style="font-size:11.5px">${setupFee}</div></div>
-        </div>
-
-        <div class="prop-sec">
-          <h3>Expected Outcomes (First 90 Days)</h3>
-          <p>${outcomesText}</p>
-        </div>
-
-        ${scopeNotes ? `<div class="prop-sec"><h3>Scope & Notes</h3><p>${scopeNotes}</p></div>` : ''}
-
-        <div class="prop-sec">
-          <h3>Next Steps</h3>
-          <ul>
-            <li>Review and sign this proposal</li>
-            <li>Complete onboarding intake questionnaire</li>
-            <li>Provide brand assets (logo, photos, credentials)</li>
-            <li>Kick-off call scheduled within 3 business days of signing</li>
-            <li>First deliverables live within 5–7 business days of kickoff</li>
-          </ul>
-        </div>
-
-      </div>
-      <div class="prop-footer">
-        <p>Proposal valid 14 days from date issued. AMPLIFY · Sugar Land, TX</p>
-        <div class="sig-row">
-          <div class="sig-item"><div class="sig-line"></div><div class="sig-lbl">Client Signature & Date</div></div>
-          <div class="sig-item"><div class="sig-line"></div><div class="sig-lbl">AMPLIFY Representative</div></div>
-        </div>
-      </div>
-    </div>
-  `;
-}
-
-function openModal() { document.getElementById('modal-bg').classList.add('open'); }
-function closeModal() { document.getElementById('modal-bg').classList.remove('open'); }
-
-function addClient() {
-  const name = document.getElementById('nc-name').value.trim();
-  const ind = document.getElementById('nc-industry').value.trim();
-  const status = document.getElementById('nc-status').value;
-  if (!name) return;
-  const key = 'c_' + Date.now();
-  CLIENTS[key] = {...CLIENTS['blank'], bizName: name, industry: ind};
-  const btn = document.createElement('button');
-  btn.className = 'cl-btn'; btn.id = 'btn-' + key;
-  btn.onclick = () => loadClient(key);
-  btn.innerHTML = `<span class="cn">${name}</span><span class="ct">${ind||'Uncategorized'}</span><span class="cs">● ${status}</span>`;
-  document.querySelector('.add-btn').before(btn);
-  closeModal();
-  loadClient(key);
-}
-
-function copyProposal() {
-  const text = document.getElementById('prop-output')?.innerText || '';
-  navigator.clipboard.writeText(text).then(() => alert('Proposal copied to clipboard.'));
-}
-
-async function submitToAMPLIFY() {
-  const g = id => document.getElementById(id)?.value || '';
-  const bizName = g('biz-name') || 'Unknown Business';
-  const contact = g('contact-name') || '';
-  const industry = g('industry') || '';
-  const email = g('contact-email') || '';
-  const phone = g('contact-phone') || '';
-  const location = g('location') || '';
-  const notes = g('biz-notes') || '';
-  const customMsg = g('custom-msg') || '';
-  const outcomes = g('outcomes') || '';
-  const contract = g('contract') || '';
-  const billing = g('billing') || '';
-  const discount = g('discount') || '';
-  const scopeNotes = g('scope-notes') || '';
-
-  const selectedSvcs = [...document.querySelectorAll('.svc-card.on')]
-    .map(c => c.querySelector('.svc-name').textContent.trim())
-    .join(', ') || 'None selected';
-
-  const pains = [...document.querySelectorAll('.ptag.on')]
-    .map(t => t.textContent.trim())
-    .join(', ') || 'None selected';
-
-  const btn = document.getElementById('submit-btn');
-  const status = document.getElementById('submit-status');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-
-  const payload = {
-    _subject: `New AMPLIFY Proposal — ${bizName}`,
-    Business_Name: bizName,
-    Contact_Name: contact,
-    Industry: industry,
-    Email: email,
-    Phone: phone,
-    Location: location,
-    Event_Notes: notes,
-    Pain_Points: pains,
-    Selected_Services: selectedSvcs,
-    Contract_Term: contract,
-    Billing_Cycle: billing,
-    Discount_Promo: discount,
-    Scope_Notes: scopeNotes,
-    Custom_Message: customMsg,
-    Expected_Outcomes: outcomes,
-  };
-
-  try {
-    const res = await fetch('https://formspree.io/f/xwvweprb', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-
-    status.style.display = 'block';
-    if (res.ok) {
-      status.style.background = '#E8F5E9';
-      status.style.color = '#2E7D32';
-      status.style.border = '1px solid #A5D6A7';
-      status.textContent = '✓ Proposal submitted successfully — sent to gmoneytalents@gmail.com';
-      btn.textContent = '✓ Submitted';
-    } else {
-      throw new Error('Server error');
-    }
-  } catch(err) {
-    status.style.display = 'block';
-    status.style.background = '#FFEBEE';
-    status.style.color = '#B71C1C';
-    status.style.border = '1px solid #FFCDD2';
-    status.textContent = '✗ Submission failed. Please check your Formspree endpoint is active, then try again.';
-    btn.textContent = '📤 Submit to AMPLIFY';
-    btn.disabled = false;
+  if(discount>0&&subtotal>0){
+    g('subtotal-row').style.display='flex';
+    g('t-subtotal').textContent=fmt(subtotal);
+    g('discount-row').style.display='flex';
+    g('discount-label').textContent=`Discount (${discount}%)`;
+    g('t-discount').textContent='-'+fmt(discountAmt);
+  } else {
+    g('subtotal-row').style.display='none';
+    g('discount-row').style.display='none';
   }
+  g('t-total').textContent = fmt(total);
+
+  g('sig-client-label').textContent = client !== 'Brand Name' ? `${client} Signature` : 'Brand Signature';
+  g('footer-brand').textContent = creator ? creator.toUpperCase() : 'AMPLIFY';
+  g('footer-note').textContent = `Confidential — Prepared exclusively for ${client}`;
+
+  updateEmail(client,contact,creator,campaign,platform,total,activeServices);
+  updateFollowup(client,contact,creator);
 }
 
-// Init
-buildCatalog();
-loadClient('hair');
+function updateEmail(client,contact,creator,campaign,platform,total,services){
+  const svcList = services.length ? services.map(s=>`  • ${s.name} — ${fmt(s.price)}`).join('\n') : '  (No services selected)';
+  const txt = `Subject: ${campaign !== '—' ? campaign : 'Collaboration Proposal'} — ${client}
+
+Hi ${contact !== '—' ? contact.split(' ')[0] : 'there'},
+
+I hope this message finds you well. I’m reaching out because I genuinely believe there’s a strong alignment between your brand and my audience on ${platform}.
+
+I’ve put together a custom proposal for ${client} that outlines a tailored partnership I think your team will love.
+
+📌 Campaign: ${campaign !== '—' ? campaign : 'Custom Collaboration'}
+📦 Deliverables:
+${svcList}
+💰 Total Investment: ${fmt(total)}
+
+I’d love to hop on a quick call to walk you through everything and answer any questions. Would you have 20 minutes this week or next?
+
+Looking forward to potentially working together.
+
+Warm regards,
+${creator}`;
+  g('email-template').textContent=txt;
+}
+
+function updateFollowup(client,contact,creator){
+  const txt = `Subject: Following Up — Partnership Proposal for ${client}
+
+Hi ${contact !== '—' ? contact.split(' ')[0] : 'there'},
+
+I wanted to follow up on the proposal I sent over a few days ago regarding a potential partnership with ${client}.
+
+I understand things get busy, so I just wanted to make sure it didn’t get lost in the shuffle. I’m still very excited about the opportunity to collaborate and believe we could create something really compelling together.
+
+If you have any questions, need any adjustments to the proposal, or would like to schedule a quick call, please don’t hesitate to reach out.
+
+Looking forward to hearing from you!
+
+Best,
+${creator}`;
+  g('followup-template').textContent=txt;
+}
+
+function switchTab(name,el){
+  ['proposal','email','followup'].forEach(t=>{
+    g('tab-'+t).style.display = t===name?'block':'none';
+  });
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+}
+
+function openExportModal(){g('exportModal').classList.add('open');}
+function closeModal(){g('exportModal').classList.remove('open');}
+g('exportModal').addEventListener('click',e=>{if(e.target===g('exportModal'))closeModal();});
+
+function showToast(msg){
+  const t=g('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+function copyEmail(){
+  navigator.clipboard.writeText(g('email-template').textContent)
+    .then(()=>showToast('Email copied to clipboard'))
+    .catch(()=>showToast('Copy failed — please select manually'));
+}
+function copyFollowup(){
+  navigator.clipboard.writeText(g('followup-template').textContent)
+    .then(()=>showToast('Follow-up copied to clipboard'))
+    .catch(()=>showToast('Copy failed — please select manually'));
+}
+function copyLink(){
+  navigator.clipboard.writeText(window.location.href)
+    .then(()=>showToast('Link copied!'))
+    .catch(()=>showToast('Copy failed'));
+}
+
+function resetForm(){
+  ['clientName','contactName','industry','campaignTitle','validDate','creatorName','customNote'].forEach(id=>{
+    if(g(id))g(id).value='';
+  });
+  g('discount').value='0';
+  selected.clear();
+  document.querySelectorAll('.svc-row.active').forEach(r=>r.classList.remove('active'));
+  update();
+  showToast('Form reset');
+}
+
+initServices();
+update();
 </script>
 </body>
 </html>
